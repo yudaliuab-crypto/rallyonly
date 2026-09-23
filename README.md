@@ -8,4 +8,4 @@ The two pages the App Store requires, served by GitHub Pages.
 This repository is public because both URLs have to be reachable without signing in. It
 contains no source code — the app itself lives in a private repository.
 
-Contact: rolelift@gmail.com
+Contact: rallyonly.feedback@gmail.com
