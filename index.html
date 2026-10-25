@@ -4,6 +4,9 @@
 <title>RallyOnly — Cut the Dead Time Out of Tennis Match Videos</title>
 <meta name="description" content="Free iPhone app that removes the walking and ball-collecting from your tennis match recordings and cuts a 2-minute highlight reel. On your phone, nothing uploaded.">
 <link rel="canonical" href="https://yudaliuab-crypto.github.io/rallyonly/">
+<link rel="alternate" hreflang="en" href="https://yudaliuab-crypto.github.io/rallyonly/">
+<link rel="alternate" hreflang="es" href="https://yudaliuab-crypto.github.io/rallyonly/es/">
+<link rel="alternate" hreflang="x-default" href="https://yudaliuab-crypto.github.io/rallyonly/">
 <meta name="apple-itunes-app" content="app-id=6813940884">
 <meta name="theme-color" content="#0c1110">
 <meta property="og:type" content="website">
@@ -14,137 +17,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="img/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="img/icon-180.png">
-<style>
-  :root {
-    --night:#0c1110; --night-2:#131b17; --lime:#cce35c; --lime-ink:#24301c;
-    --paper:#f6f4ec; --card:#fefdf9; --ink:#0d2c22; --muted:#5b6b63;
-    --brand:#174d3d; --line:rgba(23,77,61,.12);
-  }
-  @media (prefers-color-scheme: dark) {
-    :root { --paper:#0c1110; --card:#131b17; --ink:#eaf0ec; --muted:#93a49b;
-            --brand:#2e8060; --line:rgba(255,255,255,.09); }
-  }
-  * { box-sizing:border-box; }
-  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior:smooth; } }
-  body { margin:0; background:var(--paper); color:var(--ink);
-         font:17px/1.6 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;
-         -webkit-font-smoothing:antialiased; }
-  a { color:var(--brand); }
-  .wrap { max-width:1080px; margin:0 auto; padding:0 20px; }
-  h1, h2, h3 { line-height:1.12; letter-spacing:-.02em; margin:0; }
-  h2 { font-size:clamp(1.7rem, 3.2vw, 2.4rem); margin-bottom:14px; }
-  .kicker { font-size:.78rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
-            color:var(--brand); margin:0 0 12px; }
-  section { padding:88px 0; }
-  .lede { color:var(--muted); font-size:1.08rem; max-width:620px; margin:0 0 36px; }
-
-  /* Hero */
-  .hero { background:radial-gradient(1200px 600px at 50% 0%, #17362b 0%, var(--night) 62%);
-          color:#f4f6f1; padding:28px 0 0; overflow:hidden; }
-  .nav { display:flex; align-items:center; justify-content:space-between; }
-  .logo { display:flex; align-items:center; gap:10px; color:var(--lime); font-weight:800;
-          letter-spacing:.14em; text-decoration:none; font-size:.9rem; }
-  .logo img { width:30px; height:30px; border-radius:8px; }
-  .nav a.small { color:#c9d3cc; text-decoration:none; font-size:.92rem; }
-  .hero-copy { text-align:center; padding:72px 0 44px; }
-  .tagline { color:var(--lime); font-weight:700; margin:0 0 18px; letter-spacing:.01em; }
-  .hero h1 { font-size:clamp(2.3rem, 6vw, 4.2rem); max-width:900px; margin:0 auto; }
-  .hero h1 em { font-style:normal; color:var(--lime); }
-  .hero .sub { color:#b9c6bf; font-size:1.15rem; max-width:620px; margin:22px auto 32px; }
-  .ctas { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
-  .btn { display:inline-flex; align-items:center; gap:10px; padding:15px 26px; border-radius:14px;
-         font-weight:700; text-decoration:none; font-size:1rem; }
-  .btn-primary { background:var(--lime); color:var(--lime-ink); }
-  .btn-primary:hover { filter:brightness(1.06); }
-  .btn-ghost { color:#e5ece7; border:1px solid rgba(255,255,255,.22); }
-  .btn-ghost:hover { border-color:rgba(255,255,255,.5); }
-  .fine { color:#8fa197; font-size:.88rem; margin-top:16px; }
-  .phones { display:flex; justify-content:center; align-items:flex-end; gap:22px;
-            margin-top:20px; padding:0 8px; }
-  .phones img { width:250px; max-width:30%; height:auto; border-radius:26px; display:block;
-                box-shadow:0 30px 80px rgba(0,0,0,.55); }
-  .phones img:nth-child(2) { width:290px; max-width:34%; transform:translateY(-28px); }
-  .phones-mask { height:340px; overflow:hidden; }
-  @media (min-width:700px) { .phones-mask { height:520px; } }
-
-  /* Proof strip */
-  .strip { background:var(--night-2); color:#cdd7d1; }
-  .strip ul { list-style:none; margin:0; padding:18px 0; display:flex; flex-wrap:wrap;
-              justify-content:center; gap:10px 34px; font-size:.95rem; }
-  .strip li::before { content:""; display:inline-block; width:7px; height:7px; border-radius:50%;
-                      background:var(--lime); margin-right:10px; vertical-align:2px; }
-
-  /* Cards */
-  .grid { display:grid; gap:18px; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); }
-  .card { background:var(--card); border:1px solid var(--line); border-radius:20px; padding:26px; }
-  .card h3 { font-size:1.15rem; margin:14px 0 8px; }
-  .card p { margin:0; color:var(--muted); font-size:.98rem; }
-  .num { display:inline-grid; place-items:center; width:34px; height:34px; border-radius:50%;
-         background:var(--lime); color:var(--lime-ink); font-weight:800; }
-  .icon { width:40px; height:40px; border-radius:12px; display:grid; place-items:center;
-          background:rgba(204,227,92,.22); color:var(--brand); }
-  .icon svg { width:22px; height:22px; }
-
-  /* Split */
-  .split { display:grid; gap:48px; align-items:center; grid-template-columns:1fr; }
-  @media (min-width:860px) { .split { grid-template-columns:1.05fr .95fr; } }
-  .split img { width:100%; height:auto; max-width:360px; border-radius:26px; display:block; margin:0 auto;
-               box-shadow:0 24px 60px rgba(13,44,34,.18); }
-  .checks { list-style:none; padding:0; margin:0; }
-  .checks li { padding:14px 0 14px 38px; position:relative; border-bottom:1px solid var(--line); }
-  .checks li:last-child { border-bottom:0; }
-  .checks li::before { content:"✓"; position:absolute; left:0; top:13px; width:26px; height:26px;
-                       border-radius:50%; background:var(--lime); color:var(--lime-ink);
-                       display:grid; place-items:center; font-weight:800; font-size:.85rem; }
-  .checks strong { display:block; }
-  .checks span { color:var(--muted); font-size:.97rem; }
-
-  /* Compare */
-  .compare { background:var(--card); border:1px solid var(--line); border-radius:20px; overflow:hidden; }
-  table { width:100%; border-collapse:collapse; font-size:.97rem; }
-  th, td { text-align:left; padding:15px 18px; border-bottom:1px solid var(--line); vertical-align:top; }
-  tr:last-child td { border-bottom:0; }
-  thead th { font-size:.85rem; color:var(--muted); font-weight:700; text-transform:uppercase;
-             letter-spacing:.06em; }
-  .us { background:rgba(204,227,92,.14); font-weight:600; }
-  .note { color:var(--muted); font-size:.85rem; margin-top:14px; }
-
-  /* Tips */
-  .tips { display:grid; gap:32px; align-items:center; grid-template-columns:1fr; }
-  @media (min-width:860px) { .tips { grid-template-columns:.9fr 1.1fr; } }
-  .court { width:100%; max-width:380px; display:block; margin:0 auto; }
-
-  /* FAQ */
-  details { background:var(--card); border:1px solid var(--line); border-radius:16px;
-            padding:4px 22px; margin-bottom:12px; }
-  summary { cursor:pointer; font-weight:700; padding:16px 0; list-style:none; position:relative;
-            padding-right:28px; }
-  summary::-webkit-details-marker { display:none; }
-  summary::after { content:"+"; position:absolute; right:0; top:12px; font-size:1.4rem;
-                   color:var(--brand); }
-  details[open] summary::after { content:"–"; }
-  details p { margin:0 0 18px; color:var(--muted); }
-
-  /* Final CTA */
-  .final { background:radial-gradient(900px 400px at 50% 100%, #17362b 0%, var(--night) 70%);
-           color:#f4f6f1; text-align:center; }
-  .final h2 { color:#f4f6f1; }
-  .final h2 em { font-style:normal; color:var(--lime); }
-  .final p { color:#b9c6bf; margin:0 auto 30px; max-width:520px; }
-
-  footer { padding:30px 0 44px; color:var(--muted); font-size:.9rem; }
-  footer .wrap { display:flex; flex-wrap:wrap; gap:10px 24px; justify-content:space-between; }
-  footer a { color:var(--muted); }
-
-  @media (max-width:560px) {
-    section { padding:64px 0; }
-    .hero-copy { padding:52px 0 32px; }
-    .phones { gap:10px; }
-    .phones img { border-radius:16px; }
-    .nav a.small { display:none; }
-    th, td { padding:12px 10px; font-size:.9rem; }
-  }
-</style>
+<link rel="stylesheet" href="site.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"SoftwareApplication","name":"RallyOnly: Tennis Highlights",
  "operatingSystem":"iOS 17 or later","applicationCategory":"MultimediaApplication",
@@ -170,7 +43,7 @@
   <div class="wrap">
     <nav class="nav">
       <a class="logo" href="./"><img src="img/icon-180.png" alt="" width="30" height="30">RALLYONLY</a>
-      <a class="small" href="#how">How it works</a>
+      <div class="nav-links"><a class="hide-sm" href="how-to-film-tennis-match-iphone.html">Filming guide</a><a href="es/" hreflang="es" lang="es">Español</a></div>
     </nav>
     <div class="hero-copy">
       <p class="tagline">Every rally. None of the waiting.</p>
@@ -178,7 +51,7 @@
       <p class="sub">Film your match with the iPhone camera. RallyOnly finds every point, removes the
         walking and ball-collecting, and cuts a two-minute reel of your best rallies. All on your phone.</p>
       <div class="ctas">
-        <a class="btn btn-primary" href="https://apps.apple.com/app/id6813940884">Download on the App Store</a>
+        <a class="btn btn-primary" href="https://apps.apple.com/app/apple-store/id6813940884?pt=129483854&amp;ct=website&amp;mt=8">Download on the App Store</a>
         <a class="btn btn-ghost" href="#how">See how it works</a>
       </div>
       <p class="fine">Free for 4 matches a month · iPhone, iOS 17 or later · no account</p>
@@ -284,6 +157,7 @@
       <li><strong>Not from the side of the net</strong><span>Players walking past the lens look like play to any camera.</span></li>
       <li><strong>Landscape or portrait</strong><span>Both work; landscape fits the court best.</span></li>
     </ul>
+    <p style="margin-top:18px"><a href="how-to-film-tennis-match-iphone.html">Read the full filming guide →</a></p>
   </div>
 </div></section>
 
@@ -307,14 +181,14 @@
 <section class="final"><div class="wrap">
   <h2>Every rally. <em>None of the waiting.</em></h2>
   <p>Your next match, cut on your phone while you pack your bag.</p>
-  <a class="btn btn-primary" href="https://apps.apple.com/app/id6813940884">Download on the App Store</a>
+  <a class="btn btn-primary" href="https://apps.apple.com/app/apple-store/id6813940884?pt=129483854&amp;ct=website&amp;mt=8">Download on the App Store</a>
   <p class="fine" style="margin-top:16px">Free for 4 matches a month</p>
 </div></section>
 </main>
 
 <footer><div class="wrap">
   <span>RallyOnly · English, Español, Deutsch, Français, Italiano, 中文</span>
-  <span><a href="support.html">Support</a> · <a href="privacy.html">Privacy policy</a> ·
+  <span><a href="how-to-film-tennis-match-iphone.html">Filming guide</a> · <a href="es/">Español</a> · <a href="support.html">Support</a> · <a href="privacy.html">Privacy policy</a> ·
     <a href="mailto:rallyonly.feedback@gmail.com">Contact</a></span>
 </div></footer>
 </body></html>
