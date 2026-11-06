@@ -1,0 +1,34 @@
+# RallyOnly
+
+> RallyOnly is an iPhone app that cuts the dead time out of tennis match videos. You film your match with the normal Camera app, pick the video in RallyOnly, and a video model running on the iPhone finds every point, removes the walking and ball-collecting between points, and builds a two-minute highlight reel of the best rallies. Nothing is uploaded and there is no account.
+
+What it gives you from one recording:
+
+- The condensed match: every point, none of the waiting in between, played from the original video.
+- A two-minute highlight reel of the best rallies, picked automatically.
+- Every rally ranked, so you can tick the ones you want and build your own reel; serves get their own list.
+- Exports in 16:9 (YouTube) or 9:16 (stories, Reels, TikTok). Any rally's start and end can be nudged.
+
+Facts:
+
+- Platform: iPhone only, iOS 17 or later. No Android, no iPad app, no web version.
+- Price: free for four new matches a month with every feature (free exports carry a small watermark). RallyOnly Pro removes the limit and the watermark: US$4.99/month or US$34.99/year in the US App Store; new subscribers can start with a free trial. Prices differ by country.
+- Speed: roughly a ninth of the recording's length on a recent iPhone, about four minutes for a half-hour session.
+- Privacy: analysis runs on the phone; the original is read from Photos, not copied or uploaded.
+- It does not record video itself, and it does not do line calls, ball speed or shot statistics.
+- Works with GoPro or other camera footage once the video is in the Photos library.
+- Languages: English, Spanish, German, French, Italian, Simplified Chinese.
+- Compared with SwingVision: SwingVision also does line calls, ball speed, stats and in-app recording, and costs more (from US$14.99/month). RallyOnly does only the part that removes the time between points. RallyOnly is independent and not affiliated with SwingVision, Inc.
+
+## Pages
+
+- [Home](https://yudaliuab-crypto.github.io/rallyonly/): what RallyOnly does, comparison with SwingVision, FAQ
+- [How to film a tennis match with your iPhone](https://yudaliuab-crypto.github.io/rallyonly/how-to-film-tennis-match-iphone.html): phone placement, mounts, camera settings, battery, heat and storage
+- [RallyOnly en español](https://yudaliuab-crypto.github.io/rallyonly/es/): Spanish version of the home page
+- [App Store](https://apps.apple.com/app/id6813940884): download RallyOnly: Tennis Highlights
+
+## Optional
+
+- [Support](https://yudaliuab-crypto.github.io/rallyonly/support.html): getting the best results, common questions, subscriptions
+- [Privacy policy](https://yudaliuab-crypto.github.io/rallyonly/privacy.html)
+- Contact: rallyonly.feedback@gmail.com
