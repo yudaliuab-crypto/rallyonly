@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tennis Video Editor That Cuts Out the Dead Time — RallyOnly</title>
+<meta name="description" content="An automatic tennis video editor for iPhone: it finds every rally in your match recording and removes the walking, ball-collecting and changeovers. Try the demo, no upload needed.">
+<link rel="canonical" href="https://rallyonly.app/tennis-video-editor.html">
+<meta name="apple-itunes-app" content="app-id=6813940884">
+<meta name="theme-color" content="#0c1110">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The tennis video editor that only keeps the rallies">
+<meta property="og:description" content="Watch a real session with the dead time removed, then do the same to your own match on your iPhone.">
+<meta property="og:url" content="https://rallyonly.app/tennis-video-editor.html">
+<meta property="og:image" content="https://rallyonly.app/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="img/icon-180.png">
+<link rel="stylesheet" href="site.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"VideoObject","name":"A tennis session with the dead time removed by RallyOnly",
+ "description":"The first five rallies of an 18-minute baseline session filmed on a phone, with the walking and ball-collecting between rallies cut automatically.",
+ "thumbnailUrl":"https://rallyonly.app/media/tennis-video-editor-demo.jpg",
+ "contentUrl":"https://rallyonly.app/media/tennis-video-editor-demo.mp4",
+ "uploadDate":"2026-11-09","duration":"PT3M32S"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+ {"@type":"Question","name":"What is the easiest way to edit a tennis match video?","acceptedAnswer":{"@type":"Answer","text":"Let software find the rallies for you. Editing by hand takes about as long as the match itself; RallyOnly finds every rally on your iPhone and removes the time between points, so a two-hour match becomes the part where the ball is in play."}},
+ {"@type":"Question","name":"Do I have to upload my video?","acceptedAnswer":{"@type":"Answer","text":"No. RallyOnly analyses the recording on your iPhone and reads it straight from Photos. Nothing is uploaded and it doesn't make a copy of your video."}},
+ {"@type":"Question","name":"Is there a free tennis video editor?","acceptedAnswer":{"@type":"Answer","text":"RallyOnly cuts four new matches a month for free with every feature; free exports carry a small watermark. RallyOnly Pro removes the limit and the watermark."}},
+ {"@type":"Question","name":"Does it work on Android, Windows or in the browser?","acceptedAnswer":{"@type":"Answer","text":"No. RallyOnly is an iPhone app (iOS 17 or later). The demo on this page plays in any browser, but cutting your own match needs the app."}}
+]}
+</script>
+<style>
+  .demo { background:var(--night); color:#e7ede9; padding:56px 0 72px; }
+  .demo-grid { display:grid; gap:28px; align-items:start; grid-template-columns:1fr; }
+  @media (min-width:860px) { .demo-grid { grid-template-columns:minmax(260px, 340px) 1fr; gap:44px; } }
+  .phone { position:relative; width:100%; max-width:340px; margin:0 auto; border-radius:30px; overflow:hidden;
+           background:#000; aspect-ratio:9/16; box-shadow:0 30px 80px rgba(0,0,0,.55); border:6px solid #1d2622; }
+  @media (max-width:859px) { .phone { max-width:300px; } }
+  .phone video { width:100%; height:100%; display:block; object-fit:cover; background:#000; }
+  .badge { position:absolute; top:12px; left:12px; padding:5px 11px; border-radius:999px; font-size:.78rem;
+           font-weight:700; background:rgba(12,17,16,.78); color:#e7ede9; transition:background .2s; }
+  .badge.live { background:var(--lime); color:var(--lime-ink); }
+  .overlay { position:absolute; inset:0; display:none; flex-direction:column; justify-content:center; align-items:center;
+             gap:14px; padding:26px; text-align:center; background:rgba(12,17,16,.88); }
+  .overlay.on { display:flex; }
+  .overlay p { margin:0; color:#cfd9d3; font-size:.98rem; }
+  .overlay strong { color:#fff; font-size:1.15rem; }
+  .bigplay { position:absolute; inset:0; margin:auto; width:76px; height:76px; border-radius:50%; border:0;
+             background:var(--lime); color:var(--lime-ink); cursor:pointer; display:grid; place-items:center;
+             box-shadow:0 10px 30px rgba(0,0,0,.4); }
+  .bigplay svg { width:30px; height:30px; margin-left:4px; }
+  .bigplay[hidden] { display:none; }
+  .panel h2 { color:#f4f6f1; }
+  .panel .lede { color:#b9c6bf; margin-bottom:22px; }
+  .stats { display:flex; flex-wrap:wrap; gap:10px; margin:0 0 20px; padding:0; list-style:none; }
+  .stats li { background:#131b17; border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:10px 14px; }
+  .stats b { display:block; font-size:1.25rem; color:#fff; }
+  .stats span { font-size:.82rem; color:#93a49b; }
+  .controls { display:flex; flex-wrap:wrap; align-items:center; gap:10px 16px; margin-bottom:14px; }
+  .ctl { display:inline-flex; align-items:center; gap:8px; padding:10px 16px; border-radius:12px; cursor:pointer;
+         font:inherit; font-weight:700; font-size:.95rem; border:1px solid rgba(255,255,255,.2); background:transparent; color:#e7ede9; }
+  .ctl:hover { border-color:rgba(255,255,255,.45); }
+  .ctl:focus-visible, .pt button:focus-visible, .bigplay:focus-visible { outline:3px solid var(--lime); outline-offset:2px; }
+  .switch { display:inline-flex; align-items:center; gap:10px; cursor:pointer; font-size:.95rem; user-select:none; }
+  .switch input { width:44px; height:26px; appearance:none; -webkit-appearance:none; border-radius:999px; margin:0;
+                  background:#33403a; position:relative; cursor:pointer; transition:background .2s; }
+  .switch input::after { content:""; position:absolute; top:3px; left:3px; width:20px; height:20px; border-radius:50%;
+                         background:#fff; transition:transform .2s; }
+  .switch input:checked { background:var(--lime); }
+  .switch input:checked::after { transform:translateX(18px); }
+  .clock { color:#93a49b; font-size:.9rem; font-variant-numeric:tabular-nums; margin-left:auto; }
+  .track { position:relative; height:34px; border-radius:10px; background:#222c27; overflow:hidden; margin-bottom:6px; cursor:pointer; }
+  .track .seg { position:absolute; top:0; bottom:0; background:var(--lime); opacity:.85; }
+  .track .seg.locked { background:repeating-linear-gradient(135deg, #5b6b63 0 6px, #46524c 6px 12px); opacity:.9; }
+  .track .lockzone { position:absolute; top:0; bottom:0; right:0; background:rgba(0,0,0,.35); }
+  .track .head { position:absolute; top:-2px; bottom:-2px; width:3px; background:#fff; border-radius:2px; transform:translateX(-1px); }
+  .legend { display:flex; gap:18px; font-size:.8rem; color:#93a49b; margin-bottom:20px; flex-wrap:wrap; }
+  .legend i { display:inline-block; width:12px; height:12px; border-radius:3px; vertical-align:-1px; margin-right:6px; }
+  .pts { list-style:none; margin:0; padding:0; display:grid; gap:8px; grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); }
+  .pt button { width:100%; display:flex; align-items:center; gap:10px; padding:11px 12px; border-radius:12px; cursor:pointer;
+               font:inherit; font-size:.92rem; text-align:left; color:#e7ede9; background:#131b17; border:1px solid rgba(255,255,255,.08); }
+  .pt button:hover { border-color:rgba(204,227,92,.6); }
+  .pt.now button { border-color:var(--lime); background:#1b2a20; }
+  .pt .n { width:26px; height:26px; border-radius:50%; display:grid; place-items:center; flex:none;
+           background:var(--lime); color:var(--lime-ink); font-weight:800; font-size:.8rem; }
+  .pt.locked .n { background:#46524c; color:#cfd9d3; }
+  .pt small { color:#93a49b; display:block; font-size:.78rem; }
+  .pt.locked button { color:#93a49b; }
+  .unlock { margin-top:18px; padding:16px 18px; border-radius:14px; background:#131b17; border:1px solid rgba(204,227,92,.35);
+            display:flex; flex-wrap:wrap; gap:12px 18px; align-items:center; justify-content:space-between; }
+  .unlock p { margin:0; color:#cfd9d3; font-size:.95rem; max-width:440px; }
+  .unlock .btn { padding:12px 20px; }
+  .compare { overflow-x:auto; }
+  @media (max-width:560px) {
+    .compare table { font-size:.82rem; }
+    .compare th, .compare td { padding:10px 7px; }
+    .compare thead th { font-size:.68rem; letter-spacing:.02em; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero page-hero" style="padding-bottom:8px">
+  <div class="wrap">
+    <nav class="nav">
+      <a class="logo" href="./"><img src="img/icon-180.png" alt="" width="30" height="30">RALLYONLY</a>
+      <div class="nav-links"><a class="hide-sm" href="how-to-film-tennis-match-iphone.html">Filming guide</a><a href="./">The app</a></div>
+    </nav>
+    <div class="hero-copy" style="padding-bottom:24px">
+      <p class="tagline">Automatic tennis video editor for iPhone</p>
+      <h1>The tennis video editor that <em>only keeps the rallies</em></h1>
+      <p class="sub">Most of a match recording is walking, picking up balls and changing ends. RallyOnly finds
+        every rally and cuts the rest, on your phone. Watch it on a real session below.</p>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="demo" id="demo" aria-labelledby="demo-h"><div class="wrap demo-grid">
+  <div class="phone">
+    <video id="v" playsinline preload="metadata" poster="media/tennis-video-editor-demo.jpg"
+           src="media/tennis-video-editor-demo.mp4" aria-label="Demo: a tennis session with the dead time skipped"></video>
+    <span class="badge" id="badge">Preview</span>
+    <button class="bigplay" id="big" aria-label="Play the demo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg></button>
+    <div class="overlay" id="end" role="dialog" aria-label="End of the preview">
+      <strong>That's 5 of the 11 rallies in this clip.</strong>
+      <p>The full 19-minute session became 10:48 of tennis in 44 rallies. Your own matches get the same treatment on your iPhone.</p>
+      <a class="btn btn-primary" href="https://apps.apple.com/app/apple-store/id6813940884?pt=129483854&amp;ct=web_editor&amp;mt=8">Get RallyOnly</a>
+      <button class="ctl" id="again" type="button">Watch again</button>
+    </div>
+  </div>
+
+  <div class="panel">
+    <p class="kicker" style="color:var(--lime)">Live demo · no upload</p>
+    <h2 id="demo-h">5 minutes filmed, 3 minutes of tennis</h2>
+    <p class="lede">A baseline session filmed on a phone behind the court, cut by RallyOnly with no manual editing.
+      Green is what the app keeps. Switch dead time back on to see what it removed.</p>
+    <ul class="stats">
+      <li><b>5:15</b><span>filmed in this clip</span></li>
+      <li><b>3:10</b><span>kept, in 11 rallies</span></li>
+      <li><b id="saved">0:00</b><span>dead time skipped so far</span></li>
+    </ul>
+    <div class="controls">
+      <button class="ctl" id="pp" type="button" aria-label="Play">▶ Play</button>
+      <label class="switch"><input type="checkbox" id="skip" checked> Skip dead time</label>
+      <span class="clock" id="clock">0:00 / 5:15</span>
+    </div>
+    <div class="track" id="track" role="slider" aria-label="Position in the clip" aria-valuemin="0" aria-valuemax="315" aria-valuenow="0" tabindex="0"></div>
+    <div class="legend"><span><i style="background:var(--lime)"></i>Rally, kept</span><span><i style="background:#222c27;border:1px solid #46524c"></i>Dead time, removed</span><span><i style="background:repeating-linear-gradient(135deg,#5b6b63 0 3px,#46524c 3px 6px)"></i>In the app</span></div>
+    <ol class="pts" id="pts"></ol>
+    <div class="unlock">
+      <p><strong>Rallies 6 to 11 are in the app.</strong> So is every rally of your own match, ranked, with a two-minute highlight reel.</p>
+      <a class="btn btn-primary" href="https://apps.apple.com/app/apple-store/id6813940884?pt=129483854&amp;ct=web_editor&amp;mt=8">Download on the App Store</a>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <p class="kicker">How it works</p>
+  <h2>Three steps, no timeline</h2>
+  <p class="lede">A normal video editor makes you scrub through the whole match and cut every point by hand,
+    which takes about as long as playing it. RallyOnly does the cutting.</p>
+  <div class="grid">
+    <div class="card"><span class="num">1</span><h3>Film with the iPhone camera</h3>
+      <p>Phone behind the baseline, whole court in frame. <a href="how-to-film-tennis-match-iphone.html">Where to put it</a>.</p></div>
+    <div class="card"><span class="num">2</span><h3>Pick the video in RallyOnly</h3>
+      <p>It listens for the ball and watches the court to find each rally: about four minutes for a half-hour session on a recent iPhone.</p></div>
+    <div class="card"><span class="num">3</span><h3>Watch, fix, share</h3>
+      <p>The whole match without the waiting, a two-minute reel of the best rallies, and every rally ranked. Move any start or end a few seconds if you want.</p></div>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <p class="kicker">Ways to edit a tennis video</p>
+  <h2>Why not a regular editor?</h2>
+  <div class="compare"><table>
+    <thead><tr><th></th><th>Editing by hand</th><th>Upload websites</th><th class="us">RallyOnly</th></tr></thead>
+    <tr><td>Time for a 2-hour match</td><td>About 2 hours of scrubbing</td><td>Upload several GB, then wait</td><td class="us">Minutes, on the phone</td></tr>
+    <tr><td>Finds the rallies</td><td>You do</td><td>Yes</td><td class="us">Yes, ranked best first</td></tr>
+    <tr><td>Your video leaves your phone</td><td>Depends</td><td>Yes</td><td class="us">No, and it isn't copied</td></tr>
+    <tr><td>Highlight reel</td><td>You build it</td><td>Varies</td><td class="us">Two minutes, automatic</td></tr>
+  </table></div>
+  <p class="note">RallyOnly does one thing: it removes the time between points. It doesn't call lines, measure ball speed or keep stats.</p>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap" style="max-width:820px">
+  <p class="kicker">Questions</p>
+  <h2>FAQ</h2>
+  <details><summary>What is the easiest way to edit a tennis match video?</summary>
+    <p>Let software find the rallies. Editing by hand takes about as long as the match; RallyOnly finds every rally on your iPhone and removes the time between points.</p></details>
+  <details><summary>Do I have to upload my video?</summary>
+    <p>No. RallyOnly analyses the recording on your iPhone and reads it straight from Photos. Nothing is uploaded and it doesn't make a copy of your video.</p></details>
+  <details><summary>Is the demo real?</summary>
+    <p>Yes. It is a practice session filmed on a phone, cut by the same analysis the app runs, with nothing adjusted by hand. The app isn't perfect: on some sessions it keeps a few seconds of walking or a ball being fed in, which you can trim in the app.</p></details>
+  <details><summary>Is there a free version?</summary>
+    <p>Four new matches a month are free with every feature; free exports carry a small watermark. RallyOnly Pro removes the limit and the watermark.</p></details>
+  <details><summary>Does it work for doubles, or for video from a GoPro?</summary>
+    <p>Yes to both, as long as the camera sees the whole court and the video is in your Photos library.</p></details>
+  <details><summary>Android, Windows or in the browser?</summary>
+    <p>No. RallyOnly is an iPhone app (iOS 17 or later). The demo above plays in any browser, but cutting your own match needs the app.</p></details>
+</div></section>
+
+<section class="final"><div class="wrap">
+  <h2>Your next match, <em>without the waiting.</em></h2>
+  <p>Film it, pick it, watch only the tennis.</p>
+  <a class="btn btn-primary" href="https://apps.apple.com/app/apple-store/id6813940884?pt=129483854&amp;ct=web_editor&amp;mt=8">Download on the App Store</a>
+  <p class="fine" style="margin-top:16px">Free for 4 matches a month · iPhone, iOS 17 or later</p>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <span>RallyOnly · English, Español, Deutsch, Français, Italiano, 中文</span>
+  <span><a href="./">Home</a> · <a href="how-to-film-tennis-match-iphone.html">Filming guide</a> · <a href="support.html">Support</a> · <a href="privacy.html">Privacy policy</a> ·
+    <a href="mailto:rallyonly.feedback@gmail.com">Contact</a></span>
+</div></footer>
+
+<script>
+(() => {
+  // Segments the app kept, seconds into the clip (2009 session, 10:40-15:55; the video file holds the first 212 s, through rally 5).
+  const SEG = [[20.83,50.2],[53.44,110.92],[120.03,147.06],[153.82,166.7],[203.34,208.22],[223.23,230.56],
+               [245.28,249.41],[250.91,257.67],[258.67,266.3],[268.44,291.38],[296.44,305.78]];
+  const FREE = 5, TOTAL = 315, STOP = SEG[FREE - 1][1];
+  const $ = id => document.getElementById(id), v = $('v'), skip = $('skip'), track = $('track'), list = $('pts');
+  const fmt = s => Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0');
+  let saved = 0, last = 0;
+
+  SEG.forEach(([a, b], i) => {
+    const d = document.createElement('div');
+    d.className = 'seg' + (i >= FREE ? ' locked' : '');
+    d.style.left = (a / TOTAL * 100) + '%'; d.style.width = ((b - a) / TOTAL * 100) + '%';
+    track.appendChild(d);
+    const li = document.createElement('li'); li.className = 'pt' + (i >= FREE ? ' locked' : '');
+    const bt = document.createElement('button'); bt.type = 'button';
+    bt.innerHTML = `<span class="n">${i >= FREE ? '🔒' : i + 1}</span><span>Rally ${i + 1}<small>${Math.round(b - a)} s${i >= FREE ? ' · in the app' : ''}</small></span>`;
+    bt.onclick = () => i >= FREE ? showEnd() : go(a);
+    li.appendChild(bt); list.appendChild(li);
+  });
+  const lz = document.createElement('div'); lz.className = 'lockzone'; lz.style.left = (STOP / TOTAL * 100) + '%'; track.appendChild(lz);
+  const head = document.createElement('div'); head.className = 'head'; track.appendChild(head);
+
+  const segAt = t => SEG.findIndex(([a, b]) => t >= a - 0.05 && t < b);
+  function showEnd() { v.pause(); $('end').classList.add('on'); $('big').hidden = true; }
+  function go(t) { $('end').classList.remove('on'); v.currentTime = t; v.play(); }
+  function paint() {
+    const t = v.currentTime, i = segAt(t);
+    head.style.left = (t / TOTAL * 100) + '%'; track.setAttribute('aria-valuenow', Math.round(t));
+    $('clock').textContent = fmt(t) + ' / ' + fmt(TOTAL);
+    $('badge').textContent = i >= 0 ? 'Rally ' + (i + 1) : (v.paused ? 'Preview' : skip.checked ? 'Skipping…' : 'Dead time');
+    $('badge').classList.toggle('live', i >= 0);
+    [...list.children].forEach((li, k) => li.classList.toggle('now', k === i));
+    $('saved').textContent = fmt(saved);
+  }
+  v.addEventListener('timeupdate', () => {
+    const t = v.currentTime;
+    if (t >= STOP) { showEnd(); return; }
+    if (skip.checked && !v.paused && segAt(t) < 0) {
+      const next = SEG.find(([a]) => a > t);
+      if (next && next[0] < STOP) { saved += next[0] - t; v.currentTime = next[0]; }
+      else { showEnd(); }
+    }
+    last = t; paint();
+  });
+  v.addEventListener('play', () => { $('pp').textContent = '❚❚ Pause'; $('pp').setAttribute('aria-label', 'Pause'); $('big').hidden = true;
+    if (v.currentTime >= STOP) { showEnd(); return; }
+    if (skip.checked && segAt(v.currentTime) < 0) { const n = SEG.find(([a]) => a > v.currentTime); if (n && n[0] < STOP) { saved += n[0] - v.currentTime; v.currentTime = n[0]; } } });
+  v.addEventListener('ended', showEnd);
+  v.addEventListener('pause', () => { $('pp').textContent = '▶ Play'; $('pp').setAttribute('aria-label', 'Play'); });
+  $('pp').onclick = $('big').onclick = () => v.paused ? (v.currentTime >= STOP - 0.2 ? go(SEG[0][0]) : v.play()) : v.pause();
+  $('again').onclick = () => { saved = 0; go(skip.checked ? SEG[0][0] : 0); };
+  v.onclick = () => $('pp').onclick();
+  skip.onchange = paint;
+  function seekFromX(x) {
+    const r = track.getBoundingClientRect(), t = Math.max(0, Math.min(TOTAL, (x - r.left) / r.width * TOTAL));
+    if (t >= STOP) { showEnd(); return; }
+    $('end').classList.remove('on'); v.currentTime = t; paint();
+  }
+  track.addEventListener('click', e => seekFromX(e.clientX));
+  track.addEventListener('keydown', e => {
+    const k = { ArrowRight: 5, ArrowLeft: -5 }[e.key]; if (!k) return;
+    e.preventDefault(); v.currentTime = Math.max(0, Math.min(STOP - 0.5, v.currentTime + k)); paint();
+  });
+  paint();
+})();
+</script>
+</body></html>

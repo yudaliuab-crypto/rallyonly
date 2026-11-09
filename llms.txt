@@ -23,6 +23,7 @@ Facts:
 ## Pages
 
 - [Home](https://rallyonly.app/): what RallyOnly does, comparison with SwingVision, FAQ
+- [Tennis video editor demo](https://rallyonly.app/tennis-video-editor.html): a real session with the dead time removed, playable in the browser, and how RallyOnly compares with editing by hand
 - [How to film a tennis match with your iPhone](https://rallyonly.app/how-to-film-tennis-match-iphone.html): phone placement, mounts, camera settings, battery, heat and storage
 - [RallyOnly en español](https://rallyonly.app/es/): Spanish version of the home page
 - [App Store](https://apps.apple.com/app/id6813940884): download RallyOnly: Tennis Highlights
