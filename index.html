@@ -19,6 +19,13 @@
 <link rel="icon" href="img/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="img/icon-180.png">
 <link rel="stylesheet" href="site.css">
+<style>
+  .promo { padding-bottom:24px; text-align:center; }
+  .promo .lede { margin:0 auto 28px; }
+  .promo-video { display:block; width:100%; height:auto; max-width:960px; margin:0 auto; border-radius:22px;
+                 background:var(--night); box-shadow:0 24px 60px rgba(13,44,34,.22); }
+  .promo .fine a { color:var(--brand); font-weight:700; }
+</style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"SoftwareApplication","name":"RallyOnly: Tennis Highlights",
  "operatingSystem":"iOS 17 or later","applicationCategory":"MultimediaApplication",
@@ -73,6 +80,21 @@
 </ul></div>
 
 <main>
+<section class="promo" aria-labelledby="promo-h"><div class="wrap">
+  <p class="kicker">In 20 seconds</p>
+  <h2 id="promo-h">18:54 recorded. Every rally kept.</h2>
+  <p class="lede">A real session filmed on a phone, and what RallyOnly made of it: the waiting drained out, the rallies ranked.</p>
+  <video class="promo-video" autoplay muted loop playsinline preload="metadata" width="1200" height="800"
+         poster="media/rallyonly-20s.jpg" src="media/rallyonly-20s.mp4"
+         aria-label="RallyOnly in 20 seconds: an 18-minute recording, the dead time removed, 37 rallies ranked"></video>
+  <p class="fine" style="color:var(--muted)"><a href="tennis-video-editor.html">Try the interactive demo</a></p>
+</div></section>
+<script>
+  // Respect reduced motion: no autoplay, show controls instead.
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const pv = document.querySelector('.promo-video'); pv.removeAttribute('autoplay'); pv.pause(); pv.controls = true;
+  }
+</script>
 <section id="how"><div class="wrap">
   <p class="kicker">How it works</p>
   <h2>Three steps, no editing</h2>
