@@ -22,13 +22,13 @@ Facts:
 
 ## Pages
 
-- [Home](https://yudaliuab-crypto.github.io/rallyonly/): what RallyOnly does, comparison with SwingVision, FAQ
-- [How to film a tennis match with your iPhone](https://yudaliuab-crypto.github.io/rallyonly/how-to-film-tennis-match-iphone.html): phone placement, mounts, camera settings, battery, heat and storage
-- [RallyOnly en español](https://yudaliuab-crypto.github.io/rallyonly/es/): Spanish version of the home page
+- [Home](https://rallyonly.app/): what RallyOnly does, comparison with SwingVision, FAQ
+- [How to film a tennis match with your iPhone](https://rallyonly.app/how-to-film-tennis-match-iphone.html): phone placement, mounts, camera settings, battery, heat and storage
+- [RallyOnly en español](https://rallyonly.app/es/): Spanish version of the home page
 - [App Store](https://apps.apple.com/app/id6813940884): download RallyOnly: Tennis Highlights
 
 ## Optional
 
-- [Support](https://yudaliuab-crypto.github.io/rallyonly/support.html): getting the best results, common questions, subscriptions
-- [Privacy policy](https://yudaliuab-crypto.github.io/rallyonly/privacy.html)
+- [Support](https://rallyonly.app/support.html): getting the best results, common questions, subscriptions
+- [Privacy policy](https://rallyonly.app/privacy.html)
 - Contact: rallyonly.feedback@gmail.com
