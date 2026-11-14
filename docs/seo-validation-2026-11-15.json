@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-15",
+  "scope": "Local website checkout, not a production deployment or search indexing test",
+  "static_checks": {
+    "passed": 535,
+    "failed": 0
+  },
+  "nu_html_checker": {
+    "version": "26.11.14",
+    "documents": {
+      "nu-capture.json": 0,
+      "nu-comparison.json": 0,
+      "nu-es.json": 0,
+      "nu-filming.json": 0,
+      "nu-home.json": 0,
+      "nu-privacy.json": 0,
+      "nu-support.json": 0,
+      "nu-tutorial.json": 0,
+      "nu-zh.json": 0
+    },
+    "note": "Zero messages for 8 public pages and the noindex capture tool; not a Google rich-results test"
+  },
+  "measurement_unit_tests": {
+    "passed": 9,
+    "failed": 0
+  },
+  "privacy_main_text_identical_to_baseline": true,
+  "browser_checks": {
+    "mobile_width": 390,
+    "no_page_overflow": [
+      "en homepage",
+      "es homepage",
+      "zh homepage",
+      "comparison",
+      "trimming tutorial"
+    ],
+    "tutorial_images_loaded": 2,
+    "desktop_zh_width": 1280,
+    "local_save_reload_export": "passed with explicitly synthetic data on isolated localhost origin",
+    "copy_to_clipboard": "not verified: browser clipboard returned empty",
+    "real_ai_answers_collected": 0
+  },
+  "unverified": [
+    "Actual indexing",
+    "Google-selected canonical",
+    "Verified crawler IP access",
+    "AI citations",
+    "Google rich-result eligibility",
+    "Owner-tool verification/submissions"
+  ]
+}

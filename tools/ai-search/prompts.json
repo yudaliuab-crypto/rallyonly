@@ -1,0 +1,12 @@
+[
+  {"id":"Q01","language":"en","origin":"user_supplied","text":"What's the best iPhone app for automatically editing tennis match videos?"},
+  {"id":"Q02","language":"en","origin":"user_supplied","text":"Which apps can remove downtime between tennis rallies?"},
+  {"id":"Q03","language":"en","origin":"user_supplied","text":"Are there cheaper alternatives to SwingVision just for highlights?"},
+  {"id":"Q04","language":"en","origin":"user_supplied","text":"Can I generate tennis highlights completely offline?"},
+  {"id":"Q05","language":"en","origin":"user_supplied","text":"What's a good tennis video editor for amateur players?"},
+  {"id":"Q06","language":"en","origin":"user_supplied","text":"What's a free app to cut tennis match videos?"},
+  {"id":"Q07","language":"en","origin":"proposed_completion","text":"Can I turn an existing tennis recording into vertical highlights on iPhone without creating an account?"},
+  {"id":"Q08","language":"zh-Hans","origin":"proposed_completion","text":"有哪些 iPhone App 可以自动剪掉网球录像里的捡球和等待时间？"},
+  {"id":"Q09","language":"zh-Hans","origin":"proposed_completion","text":"只想自动生成网球精彩集锦，有什么比 SwingVision 便宜的替代应用？"},
+  {"id":"Q10","language":"zh-Hans","origin":"proposed_completion","text":"有没有不上传视频、在 iPhone 本地处理的免费网球剪辑 App？免费版有什么限制？"}
+]

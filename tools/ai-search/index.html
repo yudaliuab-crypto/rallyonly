@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-Hans"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,follow">
+<title>RallyOnly AI 搜索观测台 — 本地记录工具</title>
+<meta name="description" content="固定问题、复制提问、记录原始回答与来源，并在本地导出 AI 搜索观测数据。">
+<link rel="stylesheet" href="../../site.css">
+<style>
+main{max-width:1000px;margin:auto;padding:32px 20px}h1{font-size:2rem}h2{margin:32px 0 16px}.prompt{padding:18px;margin:14px 0;border:1px solid var(--line);border-radius:12px;background:var(--card)}.prompt p{margin:8px 0}.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}label{display:block;margin:10px 0}input:not([type=checkbox]),select,textarea{display:block;width:100%;padding:10px;font:inherit;border:1px solid var(--muted);border-radius:8px;color:var(--ink);background:var(--card)}textarea{min-height:130px}button{font:inherit;padding:9px 16px;border:1px solid var(--muted);border-radius:8px;background:var(--card);color:var(--ink);cursor:pointer}button.primary{background:var(--lime);color:var(--lime-ink)}.actions{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0}.status{min-height:24px;color:var(--ink)}small{color:var(--muted)}.required{color:var(--ink)}
+</style></head><body>
+<a class="skip-link" href="#main">跳到正文</a>
+<main id="main"><h1>RallyOnly AI 搜索观测台</h1>
+<p>用新会话逐条测试，保存原始回答与证据。这个工具不会调用 AI 或上传数据，记录只保存在当前浏览器。没有真实记录时不会生成推荐率。</p>
+<p>Q01–Q06 来自用户提供的问题；Q07–Q10 是补齐建议。不同引擎、模式、地区和模型不能当成同一组稳定排名。</p>
+<p><a href="README.md">查看实验协议和指标定义</a> · <a href="prompts.json">固定测试集 JSON</a> · <a href="../../">返回官网</a></p>
+<p id="load-status" class="status" role="status">正在载入问题……</p>
+<div class="actions"><button type="button" id="copy-all">复制全部问题</button></div>
+<div id="prompts"></div>
+<h2>记录一次真实观测</h2>
+<form id="capture">
+<div class="fields">
+<label>每周轮次 ID<input id="round" required placeholder="例如 2026-11-15-week1"></label>
+<label>平台 / 搜索模式<select id="engine"><option value="chatgpt_search">ChatGPT Search</option><option value="google_ai_mode">Google AI Mode</option><option value="google_ai_overviews">Google AI Overviews</option><option value="bing_copilot">Bing Copilot</option><option value="perplexity_search">Perplexity Search（可选）</option></select></label>
+<label>界面显示的模型或版本<input id="model" required value="not shown"></label>
+<label>实际测试地区<input id="region" required placeholder="例如 ES；不要推测其他用户地区"></label>
+<label>界面语言<input id="ui-language" required value="en"></label>
+<label>问题<select id="prompt" required><option value="" selected disabled>请选择固定问题</option></select></label>
+<label>独立重复次数<select id="trial"><option>1</option><option>2</option><option>3</option></select></label>
+<label>个性化 / 记忆<select id="personalization"><option value="unknown">未确认</option><option value="off">已关闭</option><option value="on">已开启</option></select></label>
+<label>联网搜索是否确认开启<select id="search"><option value="unknown">未确认</option><option value="on">已确认开启</option><option value="off">未开启</option></select></label>
+<label>结果类型<select id="outcome"><option value="answer">生成了 AI 回答</option><option value="no_ai_answer">没有触发 AI 回答</option><option value="blocked">无法访问 / 测试受阻</option></select></label>
+<label>观测时间（本地时区）<input type="datetime-local" id="captured-at" required></label>
+</div>
+<label><input type="checkbox" id="new-conversation"> 这是没有 RallyOnly 背景的新会话</label>
+<label>原始回答正文<textarea id="response" placeholder="粘贴实际回答正文，不要用自己写的摘要代替；未触发 AI 回答时可留空。"></textarea></label>
+<label>实际引用 URL，每行一个<textarea id="citations" placeholder="从来源面板记录实际引用链接，不能把推荐链接直接当成已验证引用。"></textarea></label>
+<label><input type="checkbox" id="citations-reviewed"> 已检查来源面板（即使没有来源，也需要确认）</label>
+<label><input type="checkbox" id="citations-opened"> 已打开并核实上面列出的全部引用链接</label>
+<label>RallyOnly 描述是否准确<select id="correctness"><option value="not_reviewed">尚未核实</option><option value="correct">已核实，所述事实准确</option><option value="incorrect">已核实，存在错误</option><option value="not_applicable">未提及 / 不适用</option></select></label>
+<label>错误说明及核对依据<textarea id="correctness-notes" placeholder="检查 iPhone 平台、功能、免费额度和价格日期；存在错误时必填。"></textarea></label>
+<label>截图 / 回答导出 / 分享链接的证据位置<input id="evidence" required placeholder="例如 private/2026-11-15/chatgpt-Q01-1.png"></label>
+<div class="actions"><button class="primary" type="submit">保存到本地</button></div>
+</form>
+<p id="save-status" class="status" role="status"></p>
+<h2>本浏览器记录</h2><p id="count">尚未保存观测。</p><div class="actions"><button id="export" type="button">导出 JSONL</button><button id="clear" type="button">清空本浏览器记录</button></div>
+<p><small>先导出再清空或更换设备。真实回答和截图不要提交到公开仓库。用 summarize.py 按相同条件计算提及率、已核实引用率与正确率；未知值不会按 0 处理。</small></p>
+<script>
+'use strict';
+const $=id=>document.getElementById(id), storageKey='rallyonly-ai-observations-v1';
+let prompts=[], rows=[];
+function tell(id,text){$(id).textContent=text;}
+try {rows=JSON.parse(localStorage.getItem(storageKey)||'[]');if(!Array.isArray(rows))throw new Error('记录格式不是数组');}
+catch(e){tell('save-status','无法读取本地记录，请先保留浏览器数据：'+e.message);}
+function count(){tell('count',rows.length?'已保存 '+rows.length+' 条观测。尚未据此计算排名。':'尚未保存观测。');}
+async function copy(text){
+ try{await navigator.clipboard.writeText(text);tell('load-status','已复制。请在无品牌背景的新会话中逐条提问。');}
+ catch(e){tell('load-status','剪贴板不可用，请手动选中问题并复制。');}
+}
+fetch('prompts.json').then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}).then(data=>{
+ prompts=data;
+ for(const p of prompts){
+  const box=document.createElement('section');box.className='prompt';box.style.padding='18px';
+  const title=document.createElement('h2');title.style.margin='0';title.style.fontSize='1rem';title.textContent=p.id+' · '+p.language+(p.origin==='proposed_completion'?' · 补齐建议':'');
+  const text=document.createElement('p');text.textContent=p.text;
+  const b=document.createElement('button');b.type='button';b.textContent='复制此问题';b.addEventListener('click',()=>copy(p.text));
+  box.append(title,text,b);$('prompts').append(box);
+  const option=document.createElement('option');option.value=p.id;option.textContent=p.id+' '+p.text;$('prompt').append(option);
+ }
+ tell('load-status','已载入 '+prompts.length+' 个固定问题。');
+}).catch(e=>tell('load-status','问题载入失败：'+e.message+'。请通过本地 HTTP 服务打开此页，不要直接使用 file://。'));
+$('copy-all').addEventListener('click',()=>copy(prompts.map(p=>p.id+' '+p.text).join('\n\n')));
+$('round').value=new Date().toLocaleDateString('sv-SE')+'-week1';
+const now=new Date();$('captured-at').value=new Date(now.getTime()-now.getTimezoneOffset()*60000).toISOString().slice(0,16);
+function identity(r){return [r.round_id,r.engine,r.model,r.region,r.ui_language,r.personalization,r.prompt_id,r.trial].join('|');}
+$('capture').addEventListener('submit',e=>{
+ e.preventDefault();
+ const outcome=$('outcome').value, answer=$('response').value.trim(), correctness=$('correctness').value;
+ const mention=/(?<![a-z0-9])rally[\s-]?only(?![a-z0-9])/i.test(answer);
+ if(outcome==='answer'&&!answer)return tell('save-status','生成了回答时必须保存实际正文。');
+ if(['correct','incorrect'].includes(correctness)&&(!mention||outcome!=='answer'))return tell('save-status','未提及 RallyOnly 时请选择“不适用”，不要填写准确率。');
+ if(correctness==='incorrect'&&!$('correctness-notes').value.trim())return tell('save-status','请记录具体错误及核对依据。');
+ const urls=$('citations').value.split(/\n/).map(s=>s.trim()).filter(Boolean);
+ try{for(const u of urls){const url=new URL(u);if(!['https:','http:'].includes(url.protocol))throw new Error('仅允许 http/https 引用链接');}}
+ catch(err){return tell('save-status','引用链接格式不正确：'+err.message);}
+ const row={round_id:$('round').value.trim(),captured_at:new Date($('captured-at').value).toISOString(),prompt_id:$('prompt').value,engine:$('engine').value,model:$('model').value.trim(),region:$('region').value.trim(),ui_language:$('ui-language').value.trim(),trial:Number($('trial').value),new_conversation:$('new-conversation').checked,personalization:$('personalization').value,search_enabled:$('search').value==='unknown'?null:$('search').value==='on',outcome,response_text:answer,citations_reviewed:$('citations-reviewed').checked,citations:urls.map(url=>({url,verified:$('citations-opened').checked})),correctness,correctness_notes:$('correctness-notes').value.trim(),evidence:$('evidence').value.trim()};
+ if(!row.prompt_id)return tell('save-status','请等待固定问题载入。');
+ if(rows.some(r=>identity(r)===identity(row)))return tell('save-status','此轮次、条件、问题及重复次数已有记录；请先核对，避免重复计数。');
+ try{localStorage.setItem(storageKey,JSON.stringify([...rows,row]));rows.push(row);count();tell('save-status','已保存在本浏览器，请及时导出并备份证据。');}
+ catch(err){tell('save-status','保存失败，内容仍留在表单中：'+err.message);}
+});
+$('export').addEventListener('click',()=>{
+ if(!rows.length)return tell('save-status','没有真实观测可导出；不会生成示例结果。');
+ const url=URL.createObjectURL(new Blob([rows.map(r=>JSON.stringify(r)).join('\n')+'\n'],{type:'application/x-ndjson'}));
+ const a=document.createElement('a');a.href=url;a.download='rallyonly-ai-observations.jsonl';a.click();URL.revokeObjectURL(url);
+});
+$('clear').addEventListener('click',()=>{if(confirm('请先导出备份。确认清空此浏览器的观测记录？')){localStorage.removeItem(storageKey);rows=[];count();tell('save-status','本浏览器记录已清空；已导出的文件不受影响。');}});
+count();
+</script></main></body></html>

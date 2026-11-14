@@ -2,10 +2,11 @@
 <html lang="es"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>RallyOnly — Quita los tiempos muertos de tus vídeos de tenis</title>
-<meta name="description" content="App gratis para iPhone que quita los paseos y la recogida de bolas de tus partidos de tenis grabados y monta un resumen de 2 minutos. En tu móvil, sin subir nada.">
+<meta name="description" content="Recorta vídeos de tenis en tu iPhone. 4 partidos al mes gratis, con marca de agua; Pro es opcional. Análisis local, sin cuenta ni subida de vídeos.">
 <link rel="canonical" href="https://rallyonly.app/es/">
 <link rel="alternate" hreflang="en" href="https://rallyonly.app/">
 <link rel="alternate" hreflang="es" href="https://rallyonly.app/es/">
+<link rel="alternate" hreflang="zh-Hans" href="https://rallyonly.app/zh/">
 <link rel="alternate" hreflang="x-default" href="https://rallyonly.app/">
 <meta name="apple-itunes-app" content="app-id=6813940884">
 <meta name="theme-color" content="#0c1110">
@@ -20,36 +21,118 @@
 <link rel="apple-touch-icon" href="../img/icon-180.png">
 <link rel="stylesheet" href="../site.css">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"SoftwareApplication","name":"RallyOnly: Tennis Highlights","inLanguage":"es",
- "operatingSystem":"iOS 17 o posterior","applicationCategory":"MultimediaApplication",
- "description":"Quita los tiempos muertos de los vídeos de partidos de tenis en el iPhone y monta un resumen de 2 minutos. No se sube nada.",
- "url":"https://rallyonly.app/es/",
- "installUrl":"https://apps.apple.com/app/id6813940884",
- "offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},
- "author":{"@type":"Person","name":"Yuda Li"}}
+{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "@id": "https://rallyonly.app/#app",
+  "name": "RallyOnly: Tennis Highlights",
+  "url": "https://rallyonly.app/",
+  "installUrl": "https://apps.apple.com/us/app/rallyonly-tennis-highlights/id6813940884",
+  "image": "https://rallyonly.app/img/icon-180.png",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "iOS 17 or later",
+  "availableOnDevice": "iPhone",
+  "inLanguage": [
+    "en",
+    "es",
+    "de",
+    "fr",
+    "it",
+    "zh-Hans"
+  ],
+  "description": "RallyOnly detecta puntos en grabaciones de tenis en tu iPhone, quita los tiempos muertos y crea resúmenes. Sin cuenta ni subida de vídeos.",
+  "offers": {
+    "@type": "Offer",
+    "name": "Versión gratis",
+    "price": 0,
+    "priceCurrency": "USD",
+    "url": "https://apps.apple.com/us/app/rallyonly-tennis-highlights/id6813940884",
+    "description": "Versión gratis: 4 partidos nuevos al mes, con marca de agua al exportar. RallyOnly Pro es opcional y quita el límite mensual y la marca."
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Yuda Li"
+  }
+}
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"es","mainEntity":[
- {"@type":"Question","name":"¿Se sube mi vídeo a algún sitio?","acceptedAnswer":{"@type":"Answer","text":"No. RallyOnly analiza el vídeo en tu iPhone y lee el original directamente de Fotos. No se sube nada y no hace falta cuenta."}},
- {"@type":"Question","name":"¿Cuánto tarda?","acceptedAnswer":{"@type":"Answer","text":"Más o menos una novena parte de lo que dura la grabación en un iPhone reciente: unos cuatro minutos para media hora de partido."}},
- {"@type":"Question","name":"¿Es una alternativa a SwingVision?","acceptedAnswer":{"@type":"Answer","text":"Si lo que usas de SwingVision es quitar el tiempo entre puntos, sí. RallyOnly solo hace eso: no canta bolas, no mide velocidad ni saca estadísticas, y cuesta menos."}},
- {"@type":"Question","name":"¿Es gratis?","acceptedAnswer":{"@type":"Answer","text":"Cuatro partidos nuevos al mes son gratis, con todas las funciones; lo que exportas gratis lleva una pequeña marca de agua. RallyOnly Pro quita el límite y la marca."}},
- {"@type":"Question","name":"¿Funciona en Android?","acceptedAnswer":{"@type":"Answer","text":"No. RallyOnly es solo para iPhone (iOS 17 o posterior)."}}
-]}
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Se sube mi vídeo a algún sitio?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. RallyOnly analiza el vídeo en tu iPhone y lee el original directamente de Fotos. No se sube nada y no hace falta cuenta. Lee la política de privacidad (en inglés)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto tarda?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El tiempo depende del iPhone y de la grabación. Mantén RallyOnly abierta durante el análisis y revisa el resultado antes de exportar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Y si corta mal un punto?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Abre el punto y mueve el inicio o el final, de uno en uno o de tres en tres segundos. Si nos cuentas qué pasó, nos ayudas: rallyonly.feedback@gmail.com."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Sirve con vídeos de GoPro u otras cámaras?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, siempre que el vídeo esté en tu fototeca. De momento, cada archivo es una sesión distinta."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Es una alternativa a SwingVision?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Si solo necesitas recortar puntos y crear resúmenes, RallyOnly es una opción. No canta bolas, no mide la velocidad ni ofrece estadísticas de golpes. Consulta la comparativa de funciones y precios (en inglés)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Es gratis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cuatro partidos nuevos al mes son gratis, con todas las funciones; lo que exportas gratis lleva una pequeña marca de agua. RallyOnly Pro quita el límite y la marca, y los nuevos suscriptores pueden empezar con una prueba gratuita."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Funciona en Android?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, solo iPhone (iOS 17 o posterior)."
+      }
+    }
+  ]
+}
 </script>
 </head>
 <body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
 
 <header class="hero">
   <div class="wrap">
     <nav class="nav">
       <a class="logo" href="./"><img src="../img/icon-180.png" alt="" width="30" height="30">RALLYONLY</a>
-      <div class="nav-links"><a class="hide-sm" href="#como">Cómo funciona</a><a href="../" hreflang="en" lang="en">English</a></div>
+      <div class="nav-links"><a class="hide-sm" href="#como">Cómo funciona</a><a href="../" hreflang="en" lang="en">English</a><a href="../zh/" hreflang="zh-Hans" lang="zh-Hans">中文</a></div>
     </nav>
     <div class="hero-copy">
       <p class="tagline">Todos los puntos. Ninguna espera.</p>
       <h1>Quita los <em>tiempos muertos</em> de tus vídeos de tenis</h1>
-      <p class="sub">Graba tu partido con la cámara del iPhone. RallyOnly encuentra cada punto, quita los
+      <p class="sub">Graba tu partido con la cámara del iPhone. RallyOnly detecta los puntos, quita los
         paseos y la recogida de bolas, y te monta un resumen de dos minutos con tus mejores puntos. Todo en tu móvil.</p>
       <div class="ctas">
         <a class="btn btn-primary" href="https://apps.apple.com/app/apple-store/id6813940884?pt=129483854&amp;ct=web_es&amp;mt=8">Descargar en el App Store</a>
@@ -72,7 +155,7 @@
   <li>No copia tu vídeo</li><li>En español</li>
 </ul></div>
 
-<main>
+<main id="main">
 <section id="como"><div class="wrap">
   <p class="kicker">Cómo funciona</p>
   <h2>Tres pasos, sin editar</h2>
@@ -123,15 +206,17 @@
     marcador con el Apple Watch. Mucha gente la usa sobre todo para una: quitar el tiempo entre puntos. Si es tu
     caso, RallyOnly hace solo esa parte, por menos.</p>
   <div class="compare"><table>
-    <thead><tr><th></th><th class="us">RallyOnly</th><th>SwingVision</th></tr></thead>
+    <caption>Funciones de edición y análisis para iPhone</caption>
+    <thead><tr><th scope="col">Función</th><th scope="col" class="us">RallyOnly</th><th scope="col">SwingVision</th></tr></thead>
     <tr><td>Quita tiempos muertos, resumen</td><td class="us">Sí</td><td>Sí</td></tr>
     <tr><td>Canta bolas, velocidad, estadísticas</td><td class="us">No</td><td>Sí</td></tr>
     <tr><td>Graba dentro de la app</td><td class="us">No: grabas con la app Cámara</td><td>Sí</td></tr>
     <tr><td>Versión gratis</td><td class="us">4 partidos al mes, todas las funciones, exportaciones con marca de agua</td><td>Limitada</td></tr>
-    <tr><td>Planes de pago (España)</td><td class="us">4,99 €/mes o 34,99 €/año</td><td>Desde 17,99 €/mes o 99,99 €/año</td></tr>
+    <tr><td>Precios publicados (EE. UU., USD)</td><td class="us">4,99 $/mes o 34,99 $/año</td><td>La descripción del App Store indica 179,99 $/año; las ofertas pueden variar</td></tr>
     <tr><td>Android</td><td class="us">No</td><td>No</td></tr>
   </table></div>
-  <p class="note">Precios del App Store de España a 25 de octubre de 2026; cambian según el país y pueden variar.
+  <p><a href="../rallyonly-vs-swingvision.html" lang="en">Comparativa completa (en inglés) →</a></p>
+  <p class="note">Fuentes de EE. UU. consultadas el 15 de noviembre de 2026: <a href="https://apps.apple.com/us/app/rallyonly-tennis-highlights/id6813940884">RallyOnly</a> y <a href="https://apps.apple.com/us/app/swingvision-tennis-pickleball/id989461317">SwingVision</a>. No son precios de España. Confirma el precio local, el periodo de facturación y las ofertas en la hoja de compra de Apple.
     SwingVision es una marca de SwingVision, Inc. RallyOnly es una app independiente y no tiene relación con ella.</p>
 </div></section>
 
@@ -167,14 +252,16 @@
   <details open><summary>¿Se sube mi vídeo a algún sitio?</summary>
     <p>No. RallyOnly analiza el vídeo en tu iPhone y lee el original directamente de Fotos. No se sube nada y no hace falta cuenta. Lee la <a href="../privacy.html">política de privacidad</a> (en inglés).</p></details>
   <details><summary>¿Cuánto tarda?</summary>
-    <p>Más o menos una novena parte de lo que dura la grabación en un iPhone reciente: unos cuatro minutos para media hora de partido.</p></details>
+    <p>El tiempo depende del iPhone y de la grabación. Mantén RallyOnly abierta durante el análisis y revisa el resultado antes de exportar.</p></details>
   <details><summary>¿Y si corta mal un punto?</summary>
     <p>Abre el punto y mueve el inicio o el final, de uno en uno o de tres en tres segundos. Si nos cuentas qué pasó, nos ayudas: <a href="mailto:rallyonly.feedback@gmail.com">rallyonly.feedback@gmail.com</a>.</p></details>
   <details><summary>¿Sirve con vídeos de GoPro u otras cámaras?</summary>
     <p>Sí, siempre que el vídeo esté en tu fototeca. De momento, cada archivo es una sesión distinta.</p></details>
+  <details><summary>¿Es una alternativa a SwingVision?</summary>
+    <p>Si solo necesitas recortar puntos y crear resúmenes, RallyOnly es una opción. No canta bolas, no mide la velocidad ni ofrece estadísticas de golpes. Consulta la <a href="../rallyonly-vs-swingvision.html" lang="en">comparativa de funciones y precios (en inglés)</a>.</p></details>
   <details><summary>¿Es gratis?</summary>
     <p>Cuatro partidos nuevos al mes son gratis, con todas las funciones; lo que exportas gratis lleva una pequeña marca de agua. RallyOnly Pro quita el límite y la marca, y los nuevos suscriptores pueden empezar con una prueba gratuita.</p></details>
-  <details><summary>¿Android?</summary>
+  <details><summary>¿Funciona en Android?</summary>
     <p>No, solo iPhone (iOS 17 o posterior).</p></details>
 </div></section>
 
@@ -187,8 +274,8 @@
 </main>
 
 <footer><div class="wrap">
-  <span>RallyOnly · English, Español, Deutsch, Français, Italiano, 中文</span>
-  <span><a href="../">English</a> · <a href="../support.html">Soporte</a> · <a href="../privacy.html">Privacidad</a> ·
+  <span>Idiomas de la app: English, Español, Deutsch, Français, Italiano, 中文</span>
+  <span><a href="../" lang="en">English</a> · <a href="../zh/" lang="zh-Hans">中文</a> · <a href="../how-to-automatically-trim-tennis-match-videos.html" lang="en">Tutorial de edición (inglés)</a> · <a href="../support.html">Soporte</a> · <a href="../privacy.html">Privacidad</a> ·
     <a href="mailto:rallyonly.feedback@gmail.com">Contacto</a></span>
 </div></footer>
 </body></html>

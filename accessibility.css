@@ -1,0 +1,3 @@
+.skip-link{position:absolute;left:12px;top:-100px;z-index:100;padding:10px 16px;background:#cce35c;color:#24301c;border-radius:6px}
+.skip-link:focus{top:12px}
+:focus-visible{outline:3px solid #879e24;outline-offset:4px}
