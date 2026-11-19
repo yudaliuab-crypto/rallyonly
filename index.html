@@ -220,4 +220,11 @@
   <span><a href="how-to-film-tennis-match-iphone.html">Filming guide</a> · <a href="es/">Español</a> · <a href="support.html">Support</a> · <a href="privacy.html">Privacy policy</a> ·
     <a href="mailto:rallyonly.feedback@gmail.com">Contact</a></span>
 </div></footer>
+<script>
+  // Visitors who reach home from the support or privacy page (both linked from the App Store page)
+  // get their own campaign, so Connect separates them from outside traffic. Nothing is stored or sent.
+  if (/^https:\/\/rallyonly\.app\/(support|privacy)\.html/.test(document.referrer)) {
+    document.querySelectorAll('a[href*="ct=website"]').forEach(a => { a.href = a.href.replace('ct=website', 'ct=web_via_support'); });
+  }
+</script>
 </body></html>
