@@ -1,22 +1,22 @@
 # RallyOnly
 
-> RallyOnly is an iPhone app that cuts the dead time out of tennis match videos. You film your match with the normal Camera app, pick the video in RallyOnly, and a video model running on the iPhone finds every point, removes the walking and ball-collecting between points, and builds a two-minute highlight reel of the best rallies. Nothing is uploaded and there is no account.
+> RallyOnly automatically trims tennis, padel and pickleball match recordings. It detects rallies, removes downtime and creates highlight reels on the device. No account or video upload is required.
 
 What it gives you from one recording:
 
-- The condensed match: every point, none of the waiting in between, played from the original video.
-- A two-minute highlight reel of the best rallies, picked automatically.
-- Every rally ranked, so you can tick the ones you want and build your own reel; serves get their own list.
-- Exports in 16:9 (YouTube) or 9:16 (stories, Reels, TikTok). Any rally's start and end can be nudged.
+- A condensed match based on the detected rallies. Unsaved cuts may depend on the original video.
+- A short highlight reel of the best rallies, picked automatically.
+- Detected rallies ranked, so you can tick the ones you want and build your own reel; serves get their own list.
+- Exports in 16:9 (YouTube), 9:16 (stories, Reels, TikTok) or 1:1. Any rally's start and end can be nudged.
 
 Facts:
 
-- Platform: iPhone only, iOS 17 or later. No Android, no iPad app, no web version.
+- Platform: iPhone (iOS 17 or later). Version 1.32 adds iPad and Apple silicon Mac with a shared Pro subscription. See the App Store for availability.
 - Price: free for four new matches a month with every feature (free exports carry a small watermark). RallyOnly Pro removes the limit and the watermark: US$4.99/month or US$34.99/year in the US App Store; new subscribers can start with a free trial. Prices differ by country.
-- Speed: roughly a ninth of the recording's length on a recent iPhone, about four minutes for a half-hour session.
-- Privacy: analysis runs on the phone; the original is read from Photos, not copied or uploaded.
+- Analysis time varies with the device and recording.
+- Privacy: analysis runs locally and RallyOnly does not upload the recording.
 - It does not record video itself, and it does not do line calls, ball speed or shot statistics.
-- Works with GoPro or other camera footage once the video is in the Photos library.
+- Import from Photos, or use Files and local file selection on Mac in version 1.32.
 - Languages: English, Spanish, German, French, Italian, Simplified Chinese.
 - Compared with SwingVision: SwingVision also does line calls, ball speed, stats and in-app recording, and costs more (from US$14.99/month). RallyOnly does only the part that removes the time between points. RallyOnly is independent and not affiliated with SwingVision, Inc.
 
