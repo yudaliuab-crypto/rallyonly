@@ -7,7 +7,9 @@ What it gives you from one recording:
 - A condensed match based on the detected rallies. Unsaved cuts may depend on the original video.
 - A short highlight reel of the best rallies, picked automatically.
 - Detected rallies ranked, so you can tick the ones you want and build your own reel; serves get their own list.
-- Exports in 16:9 (YouTube), 9:16 (stories, Reels, TikTok) or 1:1. Any rally's start and end can be nudged.
+- Match scoreboard: switch any rally to Score mode and tap who won each point (or start from any rally with Set score); Pro exports overlay the scoreboard on the video.
+- Frame-by-frame wheel on the right of the video to step through any stroke one frame at a time.
+- Exports in 16:9 (YouTube), 9:16 (stories, Reels, TikTok) or 1:1 — as one video or one file per rally. Any rally's start and end can be nudged.
 
 Facts:
 
@@ -25,6 +27,7 @@ Facts:
 - [Home](https://rallyonly.app/): what RallyOnly does, comparison with SwingVision, FAQ
 - [How to film a tennis match with your iPhone](https://rallyonly.app/how-to-film-tennis-match-iphone.html): phone placement, mounts, camera settings, battery, heat and storage
 - [RallyOnly en español](https://rallyonly.app/es/): Spanish version of the home page
+- [RallyOnly 中文](https://rallyonly.app/zh/): Simplified Chinese version of the home page
 - [App Store](https://apps.apple.com/app/id6813940884): download RallyOnly: Tennis Highlights
 
 ## Optional
