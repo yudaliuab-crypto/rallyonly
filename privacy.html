@@ -2,83 +2,212 @@
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>RallyOnly — Privacy Policy</title>
-<meta name="description" content="RallyOnly has no account and no server: your tennis videos are analysed on your iPhone and never uploaded. What the app stores, what it does not collect, and how to contact us.">
+<meta name="description" content="RallyOnly has no account and no server: your tennis, padel and pickleball videos are analysed on your iPhone, iPad or Mac and never uploaded. What is stored locally, how Keychain keeps the monthly free count, and what we do not collect.">
 <link rel="canonical" href="https://rallyonly.app/privacy.html">
+<meta name="theme-color" content="#0c1110">
 <link rel="icon" href="img/favicon-32.png" sizes="32x32">
-<link rel="stylesheet" href="_style.css"></head>
-<body><main>
-<p class="eyebrow">RallyOnly</p>
-<h1>Privacy Policy</h1>
-<p class="updated">Last updated 22 September 2026</p>
+<link rel="apple-touch-icon" href="img/icon-180.png">
+<link rel="stylesheet" href="site.css">
+<style>
+  .meta-pills { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:22px; }
+  .pill { display:inline-flex; align-items:center; gap:8px; padding:7px 14px; border-radius:999px;
+          background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.14);
+          color:#d8e3dc; font-size:.86rem; font-weight:600; text-decoration:none; }
+  .pill strong { color:var(--lime); }
+  .pill-dot { width:7px; height:7px; border-radius:50%; background:var(--lime); display:inline-block; }
 
-<p class="lead">RallyOnly has no account and no server. Your videos are read, analysed and
-saved on your iPhone and are never uploaded, and nothing is sent to us unless you choose to
-write to us.</p>
+  .glance { padding:52px 0 0; }
+  .glance-grid { display:grid; gap:16px; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); }
+  .glance .card { padding:22px; }
+  .glance .card h3 { font-size:1.05rem; margin:12px 0 6px; }
+  .glance .card p { font-size:.94rem; }
 
-<h2>Your videos</h2>
-<p>When you choose a video, RallyOnly reads it from your photo library and analyses it
-entirely on the device. The clips it produces are written to the app's own storage on your
-iPhone. <strong>RallyOnly never uploads your video, audio, images or frames anywhere.</strong>
-There is no RallyOnly server for them to go to.</p>
-<p>What you do with a finished clip is yours to decide. If you use the share sheet to send
-it to someone, post it, or save it back to Photos, it goes to whichever app or service you
-picked, under that service's own terms. If your photo library uses iCloud Photos, your
-recordings and anything you save back are synced by Apple, as they were before you
-installed this app. Those are your services, not ours, and we see nothing of them.</p>
+  .hero .sub { text-wrap:balance; }
+  .jump-bar { display:flex; flex-wrap:wrap; gap:8px; margin:28px 0 0; }
+  .jump-bar a { display:inline-block; padding:7px 12px; border-radius:999px;
+                background:var(--card); border:1px solid var(--line);
+                color:var(--ink); text-decoration:none; font-size:.86rem; font-weight:600;
+                white-space:nowrap; transition:border-color .15s, background .15s; }
+  .jump-bar a:hover { border-color:var(--brand); background:rgba(204,227,92,.14); }
 
-<h2>What we collect</h2>
-<p>Nothing is sent to us automatically. The app contains no analytics, no advertising and
-no third-party SDKs, and it has no server of its own to talk to. The only network traffic
-it causes is Apple's: the App Store, when you buy, restore or redeem a subscription, and
-iCloud Photos, when a recording you pick is stored in iCloud and has to be downloaded to
-your iPhone first.</p>
-<p>Two things are worth stating plainly rather than leaving under "nothing":</p>
-<ul>
-  <li><strong>Crash reports.</strong> If you have Apple's <em>Share iPhone Analytics</em>
-      switched on in iOS Settings, Apple may send crash reports for apps you use — including
-      this one — to the developer, in Apple's own aggregated form. That is an Apple service
-      you control in Settings &rsaquo; Privacy &amp; Security &rsaquo; Analytics &amp;
-      Improvements, and it happens whether or not an app asks. RallyOnly contains no crash
-      reporting code of its own.</li>
-  <li><strong>The feedback email.</strong> If you tap Send feedback, the app opens a
-      pre-filled mail with the app version, your iOS version, your iPhone model and four
-      counters — how many sessions you have analysed, how many you shared, how many share
-      sheets you closed without sending, and how many of this month's free sessions you
-      have used. Nothing else: no file names, no dates, no
-      video. It is an ordinary email you can read, edit or delete before sending, and
-      nothing is sent unless you send it.</li>
-</ul>
+  .policy-wrap { max-width:820px; margin:0 auto; padding:20px 20px 72px; }
+  .policy-section { padding:34px 0; border-bottom:1px solid var(--line); scroll-margin-top:24px; }
+  .policy-section:last-of-type { border-bottom:0; }
+  .policy-section h2 { font-size:clamp(1.35rem, 2.4vw, 1.75rem); margin:0 0 14px;
+                       display:flex; align-items:baseline; gap:12px; }
+  .sec-num { font-size:.82rem; font-weight:800; letter-spacing:.08em; color:var(--brand);
+             background:rgba(204,227,92,.24); padding:3px 9px; border-radius:999px; flex:none; }
+  .policy-section p { margin:0 0 14px; color:var(--ink); }
+  .policy-section p:last-child { margin-bottom:0; }
+  .policy-section ul { margin:12px 0 14px; padding-left:20px; }
+  .policy-section li { margin:9px 0; color:var(--ink); }
+  .policy-section .muted { color:var(--muted); font-size:.95rem; }
 
-<h2>Subscriptions</h2>
-<p>RallyOnly Pro is sold, renewed, refunded and cancelled by Apple through the App Store,
-including any free trial or offer code. We never see your payment details, your Apple ID or
-your name. The app checks whether Pro is active using the signed record Apple keeps on your
-iPhone; that check does not involve us.</p>
+  .summary-table { margin:18px 0 0; overflow-x:auto; }
+  .summary-table td:first-child { font-weight:600; width:34%; }
 
-<h2>Photo library access</h2>
-<p>RallyOnly asks for permission to read your photo library so you can pick a video to
-edit, and to save a finished clip back if you choose to. It reads only the video you
-select.</p>
+  .tag-local { display:inline-block; font-size:.74rem; font-weight:700; text-transform:uppercase;
+               letter-spacing:.06em; padding:3px 9px; border-radius:999px; white-space:nowrap;
+               background:rgba(204,227,92,.26); color:var(--ink); margin-top:4px; }
+  .nowrap { white-space:nowrap; }
+  @media (prefers-color-scheme: dark) {
+    .sec-num { color:var(--lime); background:rgba(204,227,92,.14); }
+    .tag-local { color:var(--lime); background:rgba(204,227,92,.14); }
+  }
+</style>
+</head>
+<body>
 
-<h2>Data stored on your device</h2>
-<p>Finished sessions, clips and their settings are kept in the app's storage so you can
-reopen them, along with your language choice and the counters described above.
-Deleting a session in the app deletes its files, <strong>except rallies you bookmarked</strong>:
-those stay in Saved rallies until you delete them there. Delete all removes those too, and
-deleting the app removes everything.</p>
-<p>None of it is backed up by us. If you delete the app, or lose the phone, the sessions go
-with it.</p>
+<header class="hero page-hero">
+  <div class="wrap">
+    <nav class="nav">
+      <a class="logo" href="./"><img src="img/icon-180.png" alt="" width="30" height="30">RALLYONLY</a>
+      <div class="nav-links">
+        <a href="support.html">Support</a>
+        <a class="hide-sm" href="how-to-film-tennis-match-iphone.html">Filming guide</a>
+        <a href="./">Home</a>
+      </div>
+    </nav>
+    <div class="hero-copy">
+      <p class="tagline">Privacy Policy</p>
+      <h1>Your videos stay on <em>your device</em></h1>
+      <p class="sub">RallyOnly has no account and no server. Your tennis, padel and pickleball recordings are read, analysed and saved on your iPhone, iPad or Mac — never uploaded — and nothing is sent to us unless you choose to write to us.</p>
+      <div class="meta-pills">
+        <span class="pill"><span class="pill-dot"></span>Last updated <strong>21 November 2026</strong></span>
+        <span class="pill">App Store label: <strong>Data Not Collected</strong></span>
+        <span class="pill">iPhone · iPad · Mac</span>
+      </div>
+    </div>
+  </div>
+</header>
 
-<h2>Children</h2>
-<p>RallyOnly is not directed at children under 13, and it collects nothing from anyone
-automatically.</p>
+<main>
+<section class="glance" aria-label="Privacy at a glance">
+  <div class="wrap">
+    <div class="glance-grid">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>No account, no server</h3>
+        <p>No sign-in, no cloud processing and no RallyOnly backend for your footage to go to.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div>
+        <h3>100% on-device</h3>
+        <p>Detection, scoreboards and video exports run locally on your iPhone, iPad or Apple silicon Mac.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M4.9 4.9l14.2 14.2"/></svg></div>
+        <h3>Zero tracking or SDKs</h3>
+        <p>No analytics, no advertising, no crash-reporting libraries and no third-party code.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+        <h3>Apple-only sync</h3>
+        <p>Subscriptions and the monthly free-session counter stay solely inside your own Apple Account.</p>
+      </div>
+    </div>
 
-<h2>Changes</h2>
-<p>If this policy ever changes, the updated version will be posted on this page with a new
-date.</p>
+    <nav class="jump-bar" aria-label="Policy sections">
+      <a href="#videos">1. Your videos</a>
+      <a href="#collect">2. What we collect</a>
+      <a href="#subscriptions">3. Subscriptions</a>
+      <a href="#access">4. Photos &amp; Files access</a>
+      <a href="#storage">5. Device &amp; Keychain storage</a>
+      <a href="#children">6. Children</a>
+      <a href="#contact">7. Changes &amp; contact</a>
+    </nav>
+  </div>
+</section>
 
-<h2>Contact</h2>
-<p>Questions about privacy: <a href="mailto:rallyonly.feedback@gmail.com">rallyonly.feedback@gmail.com</a></p>
+<div class="policy-wrap">
 
-<footer><a href="./">RallyOnly</a> · <a href="support.html">Support</a></footer>
-</main></body></html>
+  <section id="videos" class="policy-section">
+    <h2><span class="sec-num">01</span> Your videos</h2>
+    <p>When you pick or drop a video — from Photos, the Files app, or a local folder on your Mac — RallyOnly reads it and analyses it entirely on your iPhone, iPad or Mac. Any clips you choose to save inside a session are written to the app's own local storage on that device. <strong>RallyOnly never uploads your video, audio, images or frames anywhere.</strong> There is no RallyOnly server for them to go to.</p>
+    <p>What you do with a finished clip is yours to decide. If you use the share sheet to send it to someone, post it, save it back to Photos, or save it to a folder on Mac (<em>Save to Folder…</em>), it goes only to the destination or service you picked, under that service's own terms. If you use iCloud Photos or iCloud Drive, your recordings and anything you save there are synced by Apple, just as they were before you installed RallyOnly. Those are your Apple services, not ours, and we see nothing of them.</p>
+  </section>
+
+  <section id="collect" class="policy-section">
+    <h2><span class="sec-num">02</span> What we collect</h2>
+    <p>Nothing is sent to us automatically. RallyOnly contains no analytics, no advertising and no third-party SDKs, and it has no server of its own to talk to. The only network traffic the app triggers is Apple's:</p>
+    <ul>
+      <li><strong>App Store</strong> — when you start a trial, subscribe, restore purchases or redeem an offer code.</li>
+      <li><strong>iCloud Photos / iCloud Drive</strong> — when a recording you pick is stored in iCloud and has to be downloaded to your device first.</li>
+      <li><strong>iCloud Keychain</strong> — if turned on in your Apple Account settings, Apple syncs your monthly free-session count across your own devices (details in <a href="#storage">Section 5</a>).</li>
+    </ul>
+    <p>Two things are worth stating plainly rather than leaving under "nothing":</p>
+    <ul>
+      <li><strong>Apple crash reports.</strong> If you have Apple's <em>Share Analytics</em> switched on in your device's privacy settings, Apple may send crash reports for apps you use — including this one — to the developer in Apple's own aggregated form. You control that in Settings &rsaquo; Privacy &amp; Security &rsaquo; Analytics &amp; Improvements (or System Settings on Mac), and it happens independently of the app. RallyOnly contains no crash-reporting code of its own.</li>
+      <li><strong>The feedback email.</strong> If you choose <em>Settings &rsaquo; Send feedback</em>, the app opens a pre-filled draft in Mail containing the app version, OS version, device model, four plain counters (how many sessions you have analysed, how many you shared, how many share sheets you closed without sending, and how many of this month's free sessions you have used) and — only if an export recently failed — the error code and free disk space at that moment. Nothing else: no file names, no dates, no video. It is an ordinary email you can read, edit or delete before sending, and nothing is sent unless you press send.</li>
+    </ul>
+  </section>
+
+  <section id="subscriptions" class="policy-section">
+    <h2><span class="sec-num">03</span> Subscriptions</h2>
+    <p>RallyOnly Pro is sold, renewed, refunded and cancelled by Apple through the App Store, including any free trial or offer code, and works across your iPhone, iPad and Apple silicon Mac under the same Apple Account. We never see your payment details, your Apple Account email or your name. The app checks whether Pro is active using the signed receipt Apple keeps on your device; that check does not involve us.</p>
+  </section>
+
+  <section id="access" class="policy-section">
+    <h2><span class="sec-num">04</span> Photos &amp; Files access</h2>
+    <ul>
+      <li><strong>Photo library.</strong> RallyOnly asks for permission to read your photo library so you can pick recordings to edit (and so existing sessions can keep playing straight from the original without copying gigabytes), and to save a finished clip back to Photos when you choose to. It reads only the videos you select.</li>
+      <li><strong>Files, external drives &amp; drag-and-drop.</strong> When you pick a video from Files on iPhone or iPad, or pick/drag a local video file on Mac, Apple grants RallyOnly read access to that specific file only. RallyOnly keeps an Apple security-scoped bookmark locally on your device so you can reopen the session later without duplicating the source video. On Mac, <em>Save to Folder…</em> writes only to the folder you select.</li>
+    </ul>
+  </section>
+
+  <section id="storage" class="policy-section">
+    <h2><span class="sec-num">05</span> Data stored on your device — and in Apple Keychain</h2>
+    <div class="compare summary-table">
+      <table>
+        <thead><tr><th>Item</th><th>Where it lives</th><th>How to remove it</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Sessions, rally timelines, scoreboards &amp; exported clips</td>
+            <td>Local app storage on your device <span class="tag-local">On device</span></td>
+            <td>Delete a session, use <em>Delete videos only</em> (frees video space while keeping timelines, saved rallies &amp; collections), use <em>Delete everything</em>, or delete the app.</td>
+          </tr>
+          <tr>
+            <td>Saved rallies &amp; Collections</td>
+            <td>Local app storage on your device <span class="tag-local">On device</span></td>
+            <td>Deleting a single session keeps its bookmarked rallies in <em>Saved rallies</em>. Remove them there, use <em>Delete everything</em>, or delete the app.</td>
+          </tr>
+          <tr>
+            <td>Preferences &amp; local counters</td>
+            <td>Local app storage on your device <span class="tag-local">On device</span></td>
+            <td>Removed when you delete the app.</td>
+          </tr>
+          <tr>
+            <td>Monthly free-session count (current month + number used)</td>
+            <td>Your Apple Keychain (synced via your iCloud Keychain if enabled)</td>
+            <td>Resets automatically on the 1st of each calendar month. Stays encrypted in your Apple Account; never sent to us.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <strong>About the monthly free-session counter in Apple Keychain:</strong> To keep the free allowance (4 new matches per calendar month) accurate across reinstalls and across your own iPhone, iPad and Mac, RallyOnly stores a single small value — the current calendar month and count — in your device's Apple Keychain (with iCloud Keychain sync enabled so your own devices share the count). It contains no personal details, no video information and no identifier sent to us; it lives strictly inside your own Apple Account under Apple's encryption. Deleting the app still removes all your sessions, clips and preferences from your device.
+    </div>
+
+    <p class="muted">None of your sessions or videos are backed up by us. If you delete the app or lose your device, sessions stored only inside the app go with it — export or save any clip you want to keep permanently.</p>
+  </section>
+
+  <section id="children" class="policy-section">
+    <h2><span class="sec-num">06</span> Children</h2>
+    <p>RallyOnly is not directed at children under 13, and it collects no personal data from anyone automatically.</p>
+  </section>
+
+  <section id="contact" class="policy-section">
+    <h2><span class="sec-num">07</span> Changes &amp; Contact</h2>
+    <p>If this policy ever changes, the updated version will be posted on this page with a new "Last updated" date.</p>
+    <p>Questions about privacy? Write directly to <a href="mailto:rallyonly.feedback@gmail.com">rallyonly.feedback@gmail.com</a>.</p>
+  </section>
+
+</div>
+</main>
+
+<footer><div class="wrap">
+  <span>RallyOnly · Privacy Policy · <span class="nowrap">Updated 21 November 2026</span></span>
+  <span><a href="./">RallyOnly</a> · <a href="support.html">Support</a> · <a href="how-to-film-tennis-match-iphone.html">Filming guide</a> · <a href="mailto:rallyonly.feedback@gmail.com">Contact</a></span>
+</div></footer>
+</body></html>

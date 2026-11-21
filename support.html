@@ -2,72 +2,435 @@
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>RallyOnly Support — Tennis, Padel &amp; Pickleball Video Editing</title>
-<meta name="description" content="Learn how to import tennis, padel and pickleball recordings, improve rally detection, save highlights and manage RallyOnly Pro.">
+<meta name="description" content="Guides for filming tennis, padel and pickleball, importing from Photos or Files on iPhone, iPad and Mac, keyboard shortcuts, match scoreboards, storage and RallyOnly Pro.">
 <link rel="canonical" href="https://rallyonly.app/support.html">
+<meta name="theme-color" content="#0c1110">
 <link rel="icon" href="img/favicon-32.png" sizes="32x32">
-<link rel="stylesheet" href="_style.css"></head>
-<body><main>
-<p class="eyebrow">RallyOnly</p>
-<h1>Support</h1>
-<p class="updated">Automatic highlights for tennis, padel and pickleball</p>
+<link rel="apple-touch-icon" href="img/icon-180.png">
+<link rel="stylesheet" href="site.css">
+<style>
+  /* Hero quick-jump pills */
+  .topic-pills { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin:26px auto 0; max-width:820px; }
+  .topic-pills a { display:inline-flex; align-items:center; gap:7px; padding:9px 16px; border-radius:999px;
+                   background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.16);
+                   color:#eaf0ec; text-decoration:none; font-size:.9rem; font-weight:600;
+                   transition:background .15s, border-color .15s, transform .15s; }
+  .topic-pills a:hover { background:rgba(204,227,92,.18); border-color:var(--lime); color:#fff; transform:translateY(-1px); }
+  .topic-pills a.pill-cta { background:var(--lime); color:var(--lime-ink); border-color:var(--lime); }
+  .topic-pills a.pill-cta:hover { filter:brightness(1.06); color:var(--lime-ink); }
 
-<p class="lead">Something not working, or an edit that came out wrong? Email
-<a href="mailto:rallyonly.feedback@gmail.com">rallyonly.feedback@gmail.com</a> and we will get back to you.</p>
+  section[id] { scroll-margin-top:16px; }
+  .band-alt { background:var(--card); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
 
-<h2>Supported devices and video import</h2>
-<p>On iPhone, use <em>Choose a video</em> to select a recording in Photos. Version 1.32 adds Files import on iPhone and iPad, and local video file selection on Apple silicon Mac. The same Pro subscription applies across devices. Check the <a href="https://apps.apple.com/app/id6813940884">App Store</a> for version availability and system requirements.</p>
-<p>Choose a recording with the full court in view. For padel, try an angle with minimal reflections in the glass. For pickleball doubles, leave enough room in the frame to see all four players. Review the detected cuts before exporting.</p>
+  /* Platform cards */
+  .grid-3 { display:grid; gap:18px; grid-template-columns:1fr; }
+  @media (min-width:780px) { .grid-3 { grid-template-columns:repeat(3, 1fr); } }
+  .tag-row { display:flex; flex-wrap:wrap; gap:6px; margin-top:14px; }
+  .chip { display:inline-block; font-size:.78rem; font-weight:700; padding:4px 10px; border-radius:999px;
+          background:rgba(23,77,61,.08); color:var(--brand); }
+  @media (prefers-color-scheme: dark) {
+    .chip { background:rgba(204,227,92,.12); color:var(--lime); }
+  }
+  .pro-banner { margin-top:20px; padding:16px 22px; border-radius:16px;
+                background:rgba(204,227,92,.16); border:1px solid rgba(23,77,61,.16);
+                display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px;
+                font-size:.96rem; }
+  @media (prefers-color-scheme: dark) {
+    .pro-banner { background:rgba(204,227,92,.09); border-color:rgba(204,227,92,.22); }
+  }
+  .pro-banner a { font-weight:700; white-space:nowrap; }
 
-<h2>Getting the best results</h2>
-<p>RallyOnly finds the play with a video model that runs on your device and watches the
-court, so where you put the phone decides how good the edit is.</p>
-<ul>
-  <li><strong>Stand the phone behind the baseline</strong>, a few metres back, so both
-      players and the whole court are in frame.</li>
-  <li><strong>As high as you can</strong> — a fence post or a bag on a bench beats the
-      ground.</li>
-  <li><strong>Do not film from the side of the net.</strong> Players walking past the lens
-      look exactly like play to any camera.</li>
-  <li>Landscape or portrait both work. Landscape is what most of the testing was done on,
-      and it fits the shape of a court.</li>
-  <li>Nothing to set for doubles — the app works out how many players are on court from
-      the video itself.</li>
-</ul>
+  /* 3-sport cards */
+  .sports-grid { display:grid; gap:16px; grid-template-columns:1fr; margin-top:34px; }
+  @media (min-width:780px) { .sports-grid { grid-template-columns:repeat(3, 1fr); } }
+  .sport-card { background:var(--card); border:1px solid var(--line); border-radius:18px; padding:22px;
+                border-top:4px solid var(--accent, var(--brand)); }
+  .sport-card h3 { font-size:1.1rem; margin:0 0 8px; display:flex; align-items:center;
+                   justify-content:space-between; gap:10px; flex-wrap:wrap; }
+  .sport-badge { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em;
+                 color:var(--muted); white-space:nowrap; }
+  .sport-card p { margin:0; color:var(--muted); font-size:.95rem; }
 
-<h2>Common questions</h2>
-<p><strong>How long does an edit take?</strong> It depends on your device and the recording length and format. Keep the app open during analysis. You can pick several
-recordings at once — they are analysed one after another, each into its own session, while you
-keep using the app. If you switch to another app, iOS may pause the analysis; it carries on by
-itself when you come back.</p>
-<p><strong>Does my video get uploaded?</strong> No. RallyOnly analyses the video on your device without uploading it — see
-the <a href="privacy.html">privacy policy</a>.</p>
-<p><strong>Why did it miss a rally?</strong> Usually the camera angle. If the recording was
-made from the side of the court, or very close to a player, there is much less for the app
-to work with. Send us the details and we will look at it.</p>
-<p><strong>Why does an old session say the original is gone?</strong> The condensed cut and
-the highlight reel are not saved as separate video files — they play straight out of your
-original recording, which is why they appear in seconds and take almost no space. Delete
-or move the original and unsaved cuts may lose access to it. What survives it: rallies you
-bookmarked (in Saved rallies), collections you generated, and any export made with
-<em>Keep in this session</em> switched on, which saves it as the session's own file. A video
-you shared or saved to Photos is a copy in that app, not in RallyOnly.</p>
-<p><strong>It says no original is linked.</strong> That session was imported before the app
-had permission to read your photo library, so there is nothing recorded to find the video
-again. Allow access in Settings &rsaquo; Privacy &amp; Security &rsaquo; Photos, then import
-the recording once more.</p>
+  /* Keyboard shortcuts console */
+  .kbd-panel { background:radial-gradient(900px 420px at 15% 0%, #17362b 0%, var(--night) 68%);
+               color:#eef3ef; border-radius:24px; padding:34px; border:1px solid rgba(255,255,255,.1);
+               box-shadow:0 24px 60px rgba(12,17,16,.18); }
+  .kbd-panel .kicker { color:var(--lime); }
+  .kbd-panel h2 { color:#f4f6f1; }
+  .kbd-panel .lede { color:#b9c6bf; margin-bottom:28px; }
+  .kbd-cols { display:grid; gap:18px; grid-template-columns:1fr; }
+  @media (min-width:820px) { .kbd-cols { grid-template-columns:repeat(3, 1fr); } }
+  .kbd-group { background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.09);
+               border-radius:16px; padding:20px; }
+  .kbd-group h3 { font-size:.82rem; text-transform:uppercase; letter-spacing:.1em; color:var(--lime);
+                  margin:0 0 14px; }
+  .kbd-list { list-style:none; margin:0; padding:0; display:grid; gap:12px; }
+  .kbd-list li { display:flex; align-items:center; justify-content:space-between; gap:12px;
+                 font-size:.94rem; color:#d7e1db; }
+  .keys { display:inline-flex; gap:5px; flex:none; }
+  .nowrap { white-space:nowrap; }
+  .hero .sub { text-wrap:balance; }
+  .compare { overflow-x:auto; }
+  kbd { display:inline-grid; place-items:center; min-width:30px; height:28px; padding:0 8px;
+        border-radius:7px; font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",ui-monospace,monospace;
+        font-size:.82rem; font-weight:700; color:#f4f6f1;
+        background:linear-gradient(180deg, #27362f 0%, #19241f 100%);
+        border:1px solid rgba(255,255,255,.18); box-shadow:0 2px 0 rgba(0,0,0,.55); }
+  kbd.accent { background:var(--lime); color:var(--lime-ink); border-color:rgba(255,255,255,.25);
+               box-shadow:0 2px 0 rgba(0,0,0,.4); }
+  .kbd-note { margin:20px 0 0; font-size:.88rem; color:#9ab0a4; }
 
-<h2>RallyOnly Pro</h2>
-<p><strong>Is there a free trial?</strong> New subscribers can start Pro with a free trial.
-Its length and the price after it are shown before you confirm, and Apple shows them again
-in the purchase sheet.</p>
-<p><strong>How do I cancel?</strong> In iOS Settings › your name › Subscriptions, or from
-<em>Manage subscription</em> in the app's settings. Cancel at least 24 hours before a trial
-or a paid period ends and you will not be charged for the next one. Everything you have made
-stays in the app either way.</p>
-<p><strong>I have an offer code.</strong> In the app, open Settings › <em>Redeem offer
-code</em>.</p>
-<p><strong>I changed phones and Pro is gone.</strong> Settings › <em>Restore purchases</em>,
-signed in with the same Apple ID you subscribed with.</p>
+  /* Scoreboard preview */
+  .score-grid { display:grid; gap:22px; grid-template-columns:repeat(auto-fit, minmax(290px, 1fr)); }
+  .scorebug { background:var(--night); color:#f4f6f1; border-radius:14px; padding:12px 14px;
+              margin:0 0 18px; font-variant-numeric:tabular-nums;
+              border:1px solid rgba(255,255,255,.12); box-shadow:0 10px 26px rgba(12,17,16,.16); }
+  .sb-row { display:grid; grid-template-columns:1fr repeat(3, 28px); align-items:center; gap:6px;
+            padding:5px 0; font-size:.9rem; font-weight:700; }
+  .sb-row + .sb-row { border-top:1px solid rgba(255,255,255,.1); }
+  .sb-name { display:flex; align-items:center; gap:8px; letter-spacing:.02em; }
+  .sb-serve { width:7px; height:7px; border-radius:50%; background:var(--lime); display:inline-block; }
+  .sb-serve.off { background:transparent; }
+  .sb-cell { text-align:center; color:#c4d0c9; }
+  .sb-pts { text-align:center; background:var(--lime); color:var(--lime-ink); border-radius:6px;
+            padding:2px 0; font-weight:800; }
+  .sb-pb { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:6px 2px; }
+  .sb-pb-score { font-size:1.35rem; font-weight:800; letter-spacing:.08em; color:var(--lime); }
+  .sb-pb-tag { font-size:.76rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em;
+               color:#b9c6bf; background:rgba(255,255,255,.08); padding:4px 9px; border-radius:999px; }
 
-<footer><a href="./">RallyOnly</a> · <a href="privacy.html">Privacy policy</a></footer>
-</main></body></html>
+  /* Storage visualizer */
+  .storage-cols { display:grid; gap:20px; grid-template-columns:repeat(auto-fit, minmax(290px, 1fr)); margin-bottom:22px; }
+  .storage-card { background:var(--card); border:1px solid var(--line); border-radius:20px; padding:26px; }
+  .status-badge { display:inline-flex; align-items:center; gap:7px; font-size:.78rem; font-weight:800;
+                  text-transform:uppercase; letter-spacing:.08em; padding:5px 11px; border-radius:999px;
+                  margin-bottom:14px; }
+  .status-link { background:rgba(47,111,158,.14); color:#215b85; }
+  .status-safe { background:rgba(204,227,92,.32); color:var(--lime-ink); }
+  @media (prefers-color-scheme: dark) {
+    .status-link { background:rgba(104,179,232,.16); color:#8bc8f5; }
+    .status-safe { background:rgba(204,227,92,.18); color:var(--lime); }
+  }
+  .mini-list { margin:12px 0 0; padding-left:18px; color:var(--muted); font-size:.96rem; }
+  .mini-list li { margin:7px 0; }
+  .mini-list strong { color:var(--ink); }
+
+  /* FAQ dual column */
+  .faq-groups { display:grid; gap:36px; grid-template-columns:1fr; }
+  @media (min-width:860px) { .faq-groups { grid-template-columns:1fr 1fr; align-items:start; } }
+  .faq-col h3 { font-size:1.15rem; margin:0 0 14px; color:var(--brand); }
+  @media (prefers-color-scheme: dark) { .faq-col h3 { color:var(--lime); } }
+
+  @media (max-width:560px) {
+    .kbd-panel { padding:24px 18px; border-radius:18px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero page-hero">
+  <div class="wrap">
+    <nav class="nav">
+      <a class="logo" href="./"><img src="img/icon-180.png" alt="" width="30" height="30">RALLYONLY</a>
+      <div class="nav-links">
+        <a class="hide-sm" href="how-to-film-tennis-match-iphone.html">Filming guide</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="./">Home</a>
+      </div>
+    </nav>
+    <div class="hero-copy">
+      <p class="tagline">Support &amp; Field Guide · Version 1.32</p>
+      <h1>Get the cleanest cut on <em>every court</em></h1>
+      <p class="sub">Everything you need for tennis, padel and pickleball — importing on iPhone, iPad and Mac, camera angles, keyboard shortcuts, scoreboards, storage and RallyOnly Pro.</p>
+      <nav class="topic-pills" aria-label="Support topics">
+        <a href="#devices">Devices &amp; Import</a>
+        <a href="#filming">Filming &amp; 3 Sports</a>
+        <a href="#shortcuts">Mac &amp; iPad Shortcuts</a>
+        <a href="#scoreboard">Scoreboard</a>
+        <a href="#storage">Storage &amp; Originals</a>
+        <a href="#faq">Troubleshooting</a>
+        <a href="#pro">Pro &amp; Billing</a>
+        <a class="pill-cta" href="mailto:rallyonly.feedback@gmail.com">Email support</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- 1. DEVICES & IMPORT -->
+<section id="devices"><div class="wrap">
+  <p class="kicker">Devices &amp; Import</p>
+  <h2>iPhone, iPad and Apple silicon Mac</h2>
+  <p class="lede">Import recordings from your photo library, Files, an external drive or action camera — and queue several videos at once.</p>
+  <div class="grid-3">
+    <div class="card">
+      <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></div>
+      <h3>iPhone</h3>
+      <p>Tap <em>Choose a video</em> to pick one or several recordings from Photos or Files. Analysis runs in sequence while you browse earlier sessions.</p>
+      <div class="tag-row"><span class="chip">iOS 17+</span><span class="chip">Photos</span><span class="chip">Files</span><span class="chip">Batch queue</span></div>
+    </div>
+    <div class="card">
+      <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M11 17h2"/></svg></div>
+      <h3>iPad</h3>
+      <p>Full-canvas review on a larger screen. Import from Photos or Files, drop video files straight into RallyOnly, or connect a keyboard to fly through points.</p>
+      <div class="tag-row"><span class="chip">iPadOS 17+</span><span class="chip">Files</span><span class="chip">Drag &amp; Drop</span><span class="chip">Keyboard</span></div>
+    </div>
+    <div class="card">
+      <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M2 20h20"/></svg></div>
+      <h3>Mac (Apple silicon)</h3>
+      <p>Open local video files from Finder or drag and drop straight onto the window — great for GoPro or camera SD cards. Use <em>Save to Folder…</em> to export straight to disk.</p>
+      <div class="tag-row"><span class="chip">Apple silicon</span><span class="chip">Drag &amp; Drop</span><span class="chip">Save to Folder…</span></div>
+    </div>
+  </div>
+  <div class="pro-banner">
+    <span><strong>One subscription across your Apple devices:</strong> RallyOnly Pro applies automatically on your iPhone, iPad and Mac under the same Apple Account.</span>
+    <a href="https://apps.apple.com/app/id6813940884">View on the App Store →</a>
+  </div>
+</div></section>
+
+<!-- 2. FILMING & 3 SPORTS -->
+<section id="filming" class="band-alt"><div class="wrap">
+  <div class="tips">
+    <svg class="court" viewBox="0 0 320 400" role="img" aria-label="Top view of a court showing the best camera position high behind the baseline and the side-of-net position to avoid">
+      <rect x="46" y="22" width="212" height="292" rx="6" fill="#2f6f9e"/>
+      <g fill="none" stroke="#fff" stroke-width="2.4" opacity=".92">
+        <rect x="46" y="22" width="212" height="292"/>
+        <line x1="68" y1="22" x2="68" y2="314"/><line x1="236" y1="22" x2="236" y2="314"/>
+        <line x1="68" y1="95" x2="236" y2="95"/><line x1="68" y1="241" x2="236" y2="241"/>
+        <line x1="152" y1="95" x2="152" y2="241"/>
+      </g>
+      <line x1="36" y1="168" x2="268" y2="168" stroke="#0d2c22" stroke-width="4.5"/>
+      <!-- Good camera FOV cone -->
+      <path d="M152 346 L46 30 L258 30 Z" fill="#cce35c" opacity=".13"/>
+      <path d="M152 346 L86 318 M152 346 L218 318" stroke="#cce35c" stroke-width="2" stroke-dasharray="4 4"/>
+      <rect x="139" y="336" width="26" height="36" rx="6" fill="#0c1110" stroke="#cce35c" stroke-width="2.6"/>
+      <circle cx="152" cy="354" r="4" fill="#cce35c"/>
+      <rect x="74" y="376" width="156" height="22" rx="11" fill="#cce35c"/>
+      <text x="152" y="391" text-anchor="middle" font-size="11.5" font-weight="700" fill="#24301c" font-family="-apple-system,sans-serif">✓ Behind baseline, high up</text>
+      <!-- Bad camera at side of net -->
+      <circle cx="290" cy="168" r="14" fill="#d94e4e"/>
+      <path d="M284 162 L296 174 M296 162 L284 174" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+      <text x="290" y="198" text-anchor="middle" font-size="11" font-weight="700" fill="#d94e4e" font-family="-apple-system,sans-serif">Avoid</text>
+      <text x="290" y="212" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".7" font-family="-apple-system,sans-serif">side of net</text>
+    </svg>
+    <div>
+      <p class="kicker">Filming tips</p>
+      <h2>Camera angle decides the cut</h2>
+      <p class="lede" style="margin-bottom:20px">RallyOnly watches the court on your device, so giving it a clear view of both ends makes every rally cleaner.</p>
+      <ul class="checks">
+        <li><strong>Stand the camera behind the baseline</strong><span>A few metres back so both players and the whole court stay in frame.</span></li>
+        <li><strong>Mount it as high as you can</strong><span>A fence mount, tall tripod or bag on a bench beats setting it on the ground.</span></li>
+        <li><strong>Do not film from the side of the net</strong><span>Players walking past the lens look just like active play to any camera.</span></li>
+        <li><strong>Landscape fits best · Doubles is automatic</strong><span>Landscape or portrait both work, and there is nothing to toggle for singles vs doubles.</span></li>
+      </ul>
+      <p style="margin-top:20px"><a href="how-to-film-tennis-match-iphone.html" style="font-weight:700">Read the full filming guide (mounts, battery &amp; heat) →</a></p>
+    </div>
+  </div>
+
+  <div class="sports-grid">
+    <div class="sport-card" style="--accent:#2f6f9e">
+      <h3>Tennis <span class="sport-badge">Singles &amp; Doubles</span></h3>
+      <p>Clip to the back fence behind the baseline or place a tripod centred behind the court. Keep both baselines visible if space allows.</p>
+    </div>
+    <div class="sport-card" style="--accent:#2a8f7b">
+      <h3>Padel <span class="sport-badge">Glass courts</span></h3>
+      <p>Choose an angle above the glass or flush against it with minimal reflections so both halves of the court remain crisp and unobstructed.</p>
+    </div>
+    <div class="sport-card" style="--accent:#6da32f">
+      <h3>Pickleball <span class="sport-badge">4-player framing</span></h3>
+      <p>For doubles, step back slightly wider so all four players and both kitchen lines stay inside the frame throughout fast dink exchanges.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- 3. MAC & IPAD KEYBOARD SHORTCUTS -->
+<section id="shortcuts"><div class="wrap">
+  <div class="kbd-panel">
+    <p class="kicker">Mac &amp; iPad Keyboard</p>
+    <h2>Review a whole match without touching the mouse</h2>
+    <p class="lede">Every transport, rally-jump, pick and scoring action sits on standard single-key shortcuts when reviewing a session on Mac or an iPad with a keyboard.</p>
+    <div class="kbd-cols">
+      <div class="kbd-group">
+        <h3>Playback</h3>
+        <ul class="kbd-list">
+          <li><span>Play / Pause</span><span class="keys"><kbd class="accent">Space</kbd></span></li>
+          <li><span>Skip back / forward 3 s</span><span class="keys"><kbd>←</kbd><kbd>→</kbd></span></li>
+          <li><span>Step 1 frame back / forward</span><span class="keys"><kbd>,</kbd><kbd>.</kbd></span></li>
+        </ul>
+      </div>
+      <div class="kbd-group">
+        <h3>Navigate &amp; View</h3>
+        <ul class="kbd-list">
+          <li><span>Previous / next rally</span><span class="keys"><kbd>↑</kbd><kbd>↓</kbd></span></li>
+          <li><span>Toggle full-screen view</span><span class="keys"><kbd>F</kbd></span></li>
+          <li><span>Exit full-screen / close</span><span class="keys"><kbd>Esc</kbd></span></li>
+        </ul>
+      </div>
+      <div class="kbd-group">
+        <h3>Score &amp; Pick</h3>
+        <ul class="kbd-list">
+          <li><span>Point for Side 1 / Side 2</span><span class="keys"><kbd class="accent">1</kbd><kbd class="accent">2</kbd></span></li>
+          <li><span>Pick / unpick rally for reel</span><span class="keys"><kbd class="accent">A</kbd></span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="kbd-note">Shortcuts pause automatically while you type player names in the score sheet. Frame stepping <span class="nowrap">(<kbd style="height:22px;min-width:22px;font-size:.75rem">,</kbd> / <kbd style="height:22px;min-width:22px;font-size:.75rem">.</kbd>)</span> includes 5 free turns per session and is unlimited with Pro.</p>
+  </div>
+</div></section>
+
+<!-- 4. SCOREBOARD -->
+<section id="scoreboard" class="band-alt"><div class="wrap">
+  <p class="kicker">Match Scoreboard</p>
+  <h2>Burn the live score into your match video</h2>
+  <p class="lede">Turn on the scoreboard inside any session, mark who won each rally (tap or press <strong>1</strong> / <strong>2</strong>), and RallyOnly tracks the score and renders it cleanly onto your video.</p>
+  <div class="score-grid">
+    <div class="card">
+      <div class="scorebug" aria-hidden="true">
+        <div class="sb-row"><span class="sb-name"><span class="sb-serve"></span>ALEX</span><span class="sb-cell">6</span><span class="sb-cell">4</span><span class="sb-pts">30</span></div>
+        <div class="sb-row"><span class="sb-name"><span class="sb-serve off"></span>SAM</span><span class="sb-cell">4</span><span class="sb-cell">3</span><span class="sb-cell">15</span></div>
+      </div>
+      <h3>Tennis &amp; Padel</h3>
+      <p>Tracks sets, games, points, deuce/ad or no-ad deciding points, tiebreaks and automatic server rotation. Edit any point later and the rest of the match recalculates automatically.</p>
+    </div>
+    <div class="card">
+      <div class="scorebug" aria-hidden="true">
+        <div class="sb-pb">
+          <div>
+            <div style="font-size:.76rem;color:#9ab0a4;letter-spacing:.08em;text-transform:uppercase;font-weight:700">Pickleball · Side-out</div>
+            <div class="sb-pb-score">0 – 0 – 2</div>
+          </div>
+          <span class="sb-pb-tag">Doubles / Singles</span>
+        </div>
+      </div>
+      <h3>Pickleball</h3>
+      <p>Full support for both singles and doubles side-out scoring — including the opening <strong>0-0-2</strong> server rule, server 1 / server 2 hand-offs, win-by-2 and game-point banners.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- 5. STORAGE & ORIGINALS -->
+<section id="storage"><div class="wrap">
+  <p class="kicker">Storage &amp; Originals</p>
+  <h2>Why edits appear in seconds — and what survives cleanup</h2>
+  <p class="lede">RallyOnly avoids copying multi-gigabyte source videos unless you ask it to. Here is what depends on your original recording and what lives safely on its own.</p>
+
+  <div class="storage-cols">
+    <div class="storage-card">
+      <span class="status-badge status-link">Plays from original</span>
+      <h3>Condensed match &amp; Highlight reel</h3>
+      <p style="color:var(--muted);margin:8px 0 0">These are not stored as duplicate video files — they play straight out of your original recording in Photos or Files, which is why they open immediately and take almost no space.</p>
+      <ul class="mini-list">
+        <li><strong>Keep the original in place</strong> until you have exported or saved the clips you want.</li>
+        <li>If the original is deleted or moved, unsaved cuts will show that the original is no longer available.</li>
+      </ul>
+    </div>
+    <div class="storage-card">
+      <span class="status-badge status-safe">Independent copies</span>
+      <h3>What stays even without the original</h3>
+      <p style="color:var(--muted);margin:8px 0 0">These are saved as self-contained clips and keep playing even if you delete the original recording or run <em>Delete videos only</em>:</p>
+      <ul class="mini-list">
+        <li>Rallies you bookmarked in <strong>Saved rallies</strong></li>
+        <li><strong>Collections</strong> you generated</li>
+        <li>Any export made with <strong>Keep in this session</strong> turned on</li>
+        <li>Videos you shared, saved back to Photos, or exported with <strong>Save to Folder…</strong> on Mac</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="compare">
+    <table>
+      <thead><tr><th>Cleanup action in History</th><th>What it removes</th><th>What it keeps</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Delete a session</strong></td><td>That session and its saved session video files</td><td>Rallies you bookmarked stay in <em>Saved rallies</em></td></tr>
+        <tr><td><strong>Delete videos only</strong></td><td>Saved video copies inside sessions (reclaims disk space fast)</td><td>All session timelines, scoreboards, <em>Saved rallies</em> and <em>Collections</em> — sessions still play from the original if present</td></tr>
+        <tr><td><strong>Delete everything</strong></td><td>All sessions, saved rallies and collections in the app</td><td>Your original recordings in Photos / Files, and anything you already exported</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div></section>
+
+<!-- 6. FAQ: TROUBLESHOOTING + PRO -->
+<section id="faq" class="band-alt"><div class="wrap">
+  <p class="kicker">Frequently Asked Questions</p>
+  <h2>Quick answers</h2>
+  <div class="faq-groups">
+
+    <div class="faq-col">
+      <h3>Editing &amp; Troubleshooting</h3>
+
+      <details open>
+        <summary>How long does analysis take? Can I queue several videos?</summary>
+        <p>Timing depends on your device, recording length and resolution. Keep RallyOnly open while it runs. You can pick several recordings at once — they are analysed one after another into separate sessions while you keep using the app. If you switch away, iOS or iPadOS may pause analysis and resume automatically when you come back.</p>
+      </details>
+
+      <details>
+        <summary>Why did it miss a rally or cut a point slightly early/late?</summary>
+        <p>Camera angle is almost always the cause (side-of-net views, strong glass glare in padel, or standing very close to one player). Open any rally to nudge its start or end a second or three at a time — or step frame by frame. If a clean behind-the-baseline angle still missed points, email us the details and we will look into it.</p>
+      </details>
+
+      <details>
+        <summary>It says "no original is linked" or "original is gone"</summary>
+        <p><strong>No original is linked:</strong> that session was imported before RallyOnly had permission to read your photo library. Enable Photos access in Settings &rsaquo; Privacy &amp; Security &rsaquo; Photos, then re-import the recording.<br><strong>Original is gone:</strong> the video was deleted from Photos or moved/renamed in Files. Bookmarked rallies, collections and saved exports are unaffected.</p>
+      </details>
+
+      <details>
+        <summary>Export failed — what should I check?</summary>
+        <p>Check that your device has enough free storage for the exported file and try again. If it still fails, tap <em>Settings &rsaquo; Send feedback</em> inside the app — the draft automatically includes the error code and free space at that moment (no video or filenames) so we can pinpoint the cause quickly.</p>
+      </details>
+
+      <details>
+        <summary>Does my video ever get uploaded?</summary>
+        <p>Never. Everything runs on your iPhone, iPad or Mac with no account and no RallyOnly server. Read the <a href="privacy.html">privacy policy</a> for full details.</p>
+      </details>
+    </div>
+
+    <div class="faq-col" id="pro">
+      <h3>RallyOnly Pro &amp; Billing</h3>
+
+      <details open>
+        <summary>What is included in the free tier?</summary>
+        <p>Four new matches every calendar month with every feature — condensed match, automatic highlight reel, ranked rally picker, scoreboard and exports (free exports carry a small watermark). Your monthly free count stays synced across your own Apple devices via Apple Keychain and resets automatically on the 1st of each month.</p>
+      </details>
+
+      <details>
+        <summary>Is there a free trial?</summary>
+        <p>Yes — new subscribers can start RallyOnly Pro with a free trial. Its exact length and the renewal price in your local currency are shown before you confirm, and Apple shows them again in the App Store purchase sheet.</p>
+      </details>
+
+      <details>
+        <summary>How do I cancel or switch plans?</summary>
+        <p>Open <em>Settings &rsaquo; Manage subscription</em> inside RallyOnly, or go directly to Apple's subscription settings: on iPhone/iPad, <strong>Settings &rsaquo; your name &rsaquo; Subscriptions</strong>; on Mac, <strong>App Store &rsaquo; your name &rsaquo; Account Settings &rsaquo; Subscriptions</strong>. Cancel at least 24 hours before the trial or billing period ends to avoid renewal. Everything you made stays in the app.</p>
+      </details>
+
+      <details>
+        <summary>I have an offer code — where do I enter it?</summary>
+        <p>In RallyOnly, open <em>Settings &rsaquo; Redeem offer code</em>.</p>
+      </details>
+
+      <details>
+        <summary>I switched devices or installed on iPad / Mac and Pro is missing</summary>
+        <p>Make sure you are signed into the App Store with the same Apple Account you subscribed with, then tap <em>Settings &rsaquo; Restore purchases</em>.</p>
+      </details>
+    </div>
+
+  </div>
+</div></section>
+
+<!-- 7. CONTACT -->
+<section class="final"><div class="wrap">
+  <h2>Still stuck, or an edit came out <em>wrong?</em></h2>
+  <p>Write to us directly — real replies, no bot loop. For export issues, using <strong>Settings &rsaquo; Send feedback</strong> inside RallyOnly includes the error code so we can help faster.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="mailto:rallyonly.feedback@gmail.com">Email rallyonly.feedback@gmail.com</a>
+    <a class="btn btn-ghost" href="privacy.html">Read Privacy Policy</a>
+  </div>
+</div></section>
+
+</main>
+
+<footer><div class="wrap">
+  <span>RallyOnly · iPhone, iPad &amp; Mac · 6 languages</span>
+  <span><a href="./">RallyOnly</a> · <a href="how-to-film-tennis-match-iphone.html">Filming guide</a> · <a href="privacy.html">Privacy policy</a> · <a href="es/">Español</a> · <a href="mailto:rallyonly.feedback@gmail.com">Contact</a></span>
+</div></footer>
+</body></html>
