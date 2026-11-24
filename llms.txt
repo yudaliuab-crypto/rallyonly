@@ -26,6 +26,7 @@ Facts:
 
 - [Home](https://rallyonly.app/): what RallyOnly does, comparison with SwingVision, FAQ
 - [How to film a tennis match with your iPhone](https://rallyonly.app/how-to-film-tennis-match-iphone.html): phone placement, mounts, camera settings, battery, heat and storage
+- [Cut GoPro, DJI and Insta360 match footage on Mac](https://rallyonly.app/gopro-mac-tennis-highlights.html): importing action-camera MP4/MOV files without copying huge files, handling split GoPro chapters, keyboard shortcuts and Finder export on Apple silicon Mac
 - [RallyOnly en español](https://rallyonly.app/es/): Spanish version of the home page
 - [RallyOnly 中文](https://rallyonly.app/zh/): Simplified Chinese version of the home page
 - [App Store](https://apps.apple.com/app/id6813940884): download RallyOnly: Tennis Highlights

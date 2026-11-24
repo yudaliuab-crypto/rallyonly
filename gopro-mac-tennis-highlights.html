@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cut Dead Time From GoPro, DJI &amp; Insta360 Tennis Footage on Mac — RallyOnly</title>
+<meta name="description" content="How to automatically remove dead time from GoPro, DJI and Insta360 tennis, padel and pickleball footage on an Apple silicon Mac without copying huge files or uploading to the cloud.">
+<link rel="canonical" href="https://rallyonly.app/gopro-mac-tennis-highlights.html">
+<meta name="apple-itunes-app" content="app-id=6813940884">
+<meta name="theme-color" content="#0c1110">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cut dead time from GoPro, DJI &amp; Insta360 tennis footage on Mac">
+<meta property="og:description" content="Drag MP4 or MOV files straight from Finder or your SD card into RallyOnly on Apple silicon Mac — no cloud upload, no duplicate 20 GB copies.">
+<meta property="og:url" content="https://rallyonly.app/gopro-mac-tennis-highlights.html">
+<meta property="og:image" content="https://rallyonly.app/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="img/icon-180.png">
+<link rel="stylesheet" href="site.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"How to cut dead time from GoPro, DJI and Insta360 tennis or padel footage on Mac without copying huge files",
+ "description":"A step-by-step workflow for trimming action-camera tennis, padel and pickleball match videos locally on an Apple silicon Mac using RallyOnly 1.40.",
+ "datePublished":"2026-11-24","dateModified":"2026-11-24","inLanguage":"en",
+ "author":{"@type":"Person","name":"Yuda Li"},
+ "publisher":{"@type":"Organization","name":"RallyOnly","logo":{"@type":"ImageObject","url":"https://rallyonly.app/img/icon-180.png"}},
+ "image":"https://rallyonly.app/img/og.jpg",
+ "mainEntityOfPage":"https://rallyonly.app/gopro-mac-tennis-highlights.html"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+ {"@type":"Question","name":"Does RallyOnly copy my GoPro or DJI video files on Mac?","acceptedAnswer":{"@type":"Answer","text":"No. When you drag and drop an MP4 or MOV file from Finder or pick it through Files, RallyOnly reads the file in place using a macOS security-scoped bookmark instead of duplicating multi-gigabyte footage into its own library."}},
+ {"@type":"Question","name":"What happens if my GoPro splits a two-hour match into multiple 4 GB files?","acceptedAnswer":{"@type":"Answer","text":"You can drag and drop all the chapter files into RallyOnly at once. It queues and analyses them sequentially, creating one session per file. You can bookmark your favourite rallies across chapters and combine them into one reel under Collections."}},
+ {"@type":"Question","name":"Does it work directly with Insta360 .insv files?","acceptedAnswer":{"@type":"Answer","text":"No. Export a flat court-facing MP4 or MOV from Insta360 Studio first (wide enough to show both baselines), then drop that exported MP4 into RallyOnly."}},
+ {"@type":"Question","name":"Which Macs are supported?","acceptedAnswer":{"@type":"Answer","text":"Macs with Apple silicon (M1 or later) running macOS 14 or later, via the Mac App Store. Intel Macs and Windows PCs are not supported. One RallyOnly Pro subscription covers your iPhone, iPad and Mac under the same Apple Account."}}
+]}
+</script>
+</head>
+<body>
+
+<header class="hero page-hero">
+  <div class="wrap">
+    <nav class="nav">
+      <a class="logo" href="./"><img src="img/icon-180.png" alt="" width="30" height="30">RALLYONLY</a>
+      <div class="nav-links"><a href="how-to-film-tennis-match-iphone.html">Filming guide</a><a href="support.html">Support</a><a href="./">The app</a></div>
+    </nav>
+    <div class="hero-copy">
+      <p class="tagline">Action Camera &amp; Mac Guide · Version 1.40</p>
+      <h1>Cut <em>GoPro, DJI &amp; Insta360</em> match footage on Mac</h1>
+      <p class="sub">Remove the walking and ball-collecting from tennis, padel and pickleball videos on an Apple silicon Mac — without uploading to the cloud or duplicating huge files.</p>
+    </div>
+  </div>
+</header>
+
+<main><article>
+  <div class="toc"><strong>On this page</strong>
+    <ol>
+      <li><a href="#problem">Why action-camera match editing stalls on Mac</a></li>
+      <li><a href="#camera">Camera prep: GoPro, DJI &amp; Insta360</a></li>
+      <li><a href="#import">Step 1: Import without copying huge files</a></li>
+      <li><a href="#chapters">Step 2: Handling split 4 GB GoPro chapters</a></li>
+      <li><a href="#review">Step 3: Fast keyboard review, scoreboard &amp; export</a></li>
+      <li><a href="#limits">Honest limits &amp; requirements</a></li>
+    </ol>
+  </div>
+
+  <h2 id="problem">1. Why action-camera match editing stalls on Mac</h2>
+  <p>Recording a match with a GoPro, DJI Osmo Action or Insta360 solves the phone-overheating problem, but creates a desk problem when you get home: two hours of 1080p or 4K footage sitting across multiple 4&nbsp;GB files on an SD card.</p>
+  <p>Most players end up with one of three bad options:</p>
+  <ul>
+    <li><strong>Manual timeline scrubbing</strong> in iMovie, Final Cut or Premiere — which takes roughly 1:1 with match length.</li>
+    <li><strong>Cloud upload tools</strong> — uploading 15–30&nbsp;GB over home Wi-Fi just to wait on a server queue, often with high monthly fees.</li>
+    <li><strong>Importing into Photos</strong> — which duplicates massive files inside your system Photo Library before you even decide which points are worth keeping.</li>
+  </ul>
+  <p>Starting in version <strong>1.40</strong>, RallyOnly runs natively on Apple silicon Macs and reads local video files straight from Finder or an external drive — keeping the editing local and skipping the extra copy.</p>
+
+  <h2 id="camera">2. Camera prep: GoPro, DJI &amp; Insta360</h2>
+  <p>Any standard flat <code>.mp4</code> or <code>.mov</code> video works. A few settings make the cut much cleaner before you even hit record:</p>
+  <ul>
+    <li><strong>Placement &amp; lens:</strong> Mount behind the baseline (or above/against the back glass for padel) with both players and both baselines visible. Use <strong>Linear</strong> or <strong>Wide</strong> rather than extreme SuperView fisheye, which shrinks the far player to a few pixels.</li>
+    <li><strong>Resolution &amp; frame rate:</strong> <code>1080p</code> at <code>30 fps</code> or <code>60 fps</code> is ideal. You do not need 4K for rally detection, and 1080p keeps SD card sizes and analysis times much smaller.</li>
+    <li><strong>GoPro &amp; DJI Osmo Action / Pocket:</strong> Output standard <code>.mp4</code> files directly — no conversion needed.</li>
+    <li><strong>Insta360:</strong> RallyOnly does not read raw 360° <code>.insv</code> files. If you shoot in 360° mode, reframe and export a flat court-facing <code>.mp4</code> in Insta360 Studio first, then drop that MP4 into RallyOnly. (If you shoot in single-lens MP4 mode, you can use it directly.)</li>
+  </ul>
+
+  <h2 id="import">3. Step 1: Import without copying huge files</h2>
+  <ol>
+    <li><strong>Decide where the originals will live:</strong> If you only want to pull out today's highlight reel and discard the raw footage afterwards, you can drop files straight from your SD card reader or external SSD. If you want to reopen the condensed match later inside RallyOnly, copy your camera folder once into a permanent Mac folder (for example <code>~/Movies/Matches/</code>) first.</li>
+    <li><strong>Open RallyOnly on your Mac</strong> (or iPad/iPhone using Files).</li>
+    <li><strong>Drag and drop</strong> the <code>.mp4</code> / <code>.mov</code> files straight from Finder onto the RallyOnly start window — or click <strong>Choose a video &rsaquo; Files</strong> and pick them in the file dialog.</li>
+  </ol>
+  <div class="callout">
+    <strong>Zero duplicate storage:</strong> RallyOnly links to each file where it already sits using a macOS security-scoped bookmark. It does not copy a 12&nbsp;GB match into its own container. Just remember not to unplug an SD card or rename the file if you still want to play unsaved cuts from that session later.
+  </div>
+
+  <h2 id="chapters">4. Step 2: Handling split 4 GB GoPro chapters</h2>
+  <p>GoPro and many action cameras split long matches into chapters (for example <code>GX010012.MP4</code>, <code>GX020012.MP4</code>, <code>GX030012.MP4</code>).</p>
+  <ul>
+    <li><strong>Queue the whole match in one drag:</strong> Select all chapter files together in Finder and drop them onto RallyOnly. It analyses them one after another automatically, creating one session per file, while you watch the chapters that have already finished.</li>
+    <li><strong>Build one combined highlight reel across chapters:</strong> While each chapter currently stays its own session, you can bookmark the best rallies from Chapter 1, Chapter 2 and Chapter 3 into <strong>Saved rallies</strong>, then combine them under <strong>Collections</strong> into a single full-match highlight video.</li>
+  </ul>
+
+  <h2 id="review">5. Step 3: Fast keyboard review, scoreboard &amp; export</h2>
+  <p>Once analysis finishes, you get the condensed match, an automatic highlight reel, every rally ranked, and your serve list. On Mac (or an iPad with a keyboard), you can review and score a whole set without touching the mouse:</p>
+  <ul>
+    <li><strong>Playback:</strong> <code>Space</code> to play/pause, <code>←</code> / <code>→</code> to jump 3 seconds, <code>,</code> / <code>.</code> to step one frame at a time (5 free turns per session, unlimited with Pro).</li>
+    <li><strong>Navigate &amp; pick:</strong> <code>↑</code> / <code>↓</code> for previous/next rally, <code>A</code> to tick or untick a rally for your custom reel, <code>F</code> for full screen.</li>
+    <li><strong>Match scoreboard:</strong> Switch to Score mode and press <code>1</code> or <code>2</code> to mark who won each point (or start mid-match with <em>Set score</em>). Pro exports render the scoreboard directly onto the video.</li>
+    <li><strong>Export straight to disk:</strong> Click Share and choose <strong>Save to Folder…</strong> to write your finished <code>16:9</code> YouTube cut, <code>9:16</code> Shorts/Reels/TikTok cut, or <code>1:1</code> clip directly into a Finder folder — or export one file per rally.</li>
+  </ul>
+
+  <h2 id="limits">6. Honest limits &amp; requirements</h2>
+  <ul>
+    <li><strong>Hardware:</strong> Requires an <strong>Apple silicon Mac</strong> (M1 or later, macOS 14+), iPad (iPadOS 17+), or iPhone (iOS 17+). Intel Macs, Windows and Android are not supported.</li>
+    <li><strong>Multi-file sessions:</strong> Dropping three GoPro chapters creates three sessions (you merge your favourite clips via Collections).</li>
+    <li><strong>No cloud, no line calls:</strong> RallyOnly does not record, track ball speed or call lines — it only finds rallies, removes dead time and lets you add a manual scoreboard.</li>
+    <li><strong>Pricing:</strong> Free for 4 new videos/sessions a month with every feature (free exports carry a small RallyOnly watermark). <strong>RallyOnly Pro</strong> removes the monthly limit and watermark, and one subscription covers your iPhone, iPad and Mac under the same Apple Account.</li>
+  </ul>
+
+  <div class="callout">
+    <strong>Try it on your last GoPro or DJI match:</strong> 4 new videos a month are free, with no account and no upload.
+    <p style="margin:14px 0 0"><a class="btn btn-primary" href="https://apps.apple.com/app/apple-store/id6813940884?pt=129483854&amp;ct=web_gopro_mac&amp;mt=8">Download on the App Store</a></p>
+  </div>
+  <p class="muted">Written by the developer of RallyOnly. Questions or tricky camera angles? Email <a href="mailto:rallyonly.feedback@gmail.com">rallyonly.feedback@gmail.com</a>.</p>
+</article></main>
+
+<footer><div class="wrap">
+  <span>RallyOnly · iPhone, iPad &amp; Mac</span>
+  <span><a href="./">The app</a> · <a href="how-to-film-tennis-match-iphone.html">Filming guide</a> · <a href="support.html">Support</a> · <a href="privacy.html">Privacy policy</a></span>
+</div></footer>
+</body></html>
