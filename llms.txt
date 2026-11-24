@@ -13,12 +13,12 @@ What it gives you from one recording:
 
 Facts:
 
-- Platform: iPhone (iOS 17 or later). Version 1.32 adds iPad and Apple silicon Mac with a shared Pro subscription. See the App Store for availability.
+- Platform: iPhone (iOS 17 or later), iPad, and Apple silicon Mac with a shared Pro subscription (since version 1.40). No Android version. See the App Store for availability.
 - Price: free for four new matches a month with every feature (free exports carry a small watermark). RallyOnly Pro removes the limit and the watermark: €5.99/month or €44.99/year (US$5.99/month or US$44.99/year in the US App Store; exact local price shown in the App Store); new subscribers can start with a free trial. Prices differ by country.
 - Analysis time varies with the device and recording.
-- Privacy: analysis runs locally and RallyOnly does not upload the recording.
+- Privacy and storage: analysis runs locally on the device; RallyOnly does not upload recordings and reads directly from Photos without copying multi-gigabyte videos into app storage.
 - It does not record video itself, and it does not do line calls, ball speed or shot statistics.
-- Import from Photos, or use Files and local file selection on Mac in version 1.32.
+- Import from Photos, Files, or local file selection on Mac.
 - Languages: English, Spanish, German, French, Italian, Simplified Chinese.
 - Compared with SwingVision: SwingVision also does line calls, ball speed, stats and in-app recording, and costs more (from US$14.99/month). RallyOnly does only the part that removes the time between points. RallyOnly is independent and not affiliated with SwingVision, Inc.
 
