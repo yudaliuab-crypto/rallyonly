@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="es"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RallyOnly — Editor de vídeo de tenis, pádel y pickleball</title>
+<title>RallyOnly — Quita los tiempos muertos de tus vídeos de tenis, pádel y pickleball</title>
 <meta name="description" content="Recorta automáticamente las esperas de tus vídeos de tenis, pádel y pickleball. Crea resúmenes en tu dispositivo, sin cuenta ni subidas.">
 <link rel="canonical" href="https://rallyonly.app/es/">
 <link rel="alternate" hreflang="en" href="https://rallyonly.app/">
@@ -24,6 +24,7 @@
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
+  "@id": "https://rallyonly.app/#app",
   "name": "RallyOnly: Tennis Highlights",
   "inLanguage": "es",
   "softwareVersion": "1.40",
@@ -41,7 +42,11 @@
   "author": {
     "@type": "Person",
     "name": "Yuda Li"
-  }
+  },
+  "publisher": {"@id": "https://rallyonly.app/#org"},
+  "image": "https://rallyonly.app/img/icon-180.png",
+  "screenshot": ["https://rallyonly.app/img/es/1-results.jpg", "https://rallyonly.app/img/es/2-picker.jpg", "https://rallyonly.app/img/es/3-trim.jpg"],
+  "sameAs": ["https://apps.apple.com/app/id6813940884"]
 }
 </script>
 <script type="application/ld+json">
@@ -105,6 +110,38 @@
         "@type": "Answer",
         "text": "No. RallyOnly se distribuye en el App Store de Apple."
       }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://rallyonly.app/#org",
+      "name": "RallyOnly",
+      "url": "https://rallyonly.app/",
+      "logo": "https://rallyonly.app/img/icon-180.png",
+      "email": "rallyonly.feedback@gmail.com",
+      "sameAs": [
+        "https://apps.apple.com/app/id6813940884"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://rallyonly.app/#website",
+      "name": "RallyOnly",
+      "url": "https://rallyonly.app/",
+      "publisher": {
+        "@id": "https://rallyonly.app/#org"
+      },
+      "inLanguage": [
+        "en",
+        "es",
+        "zh-Hans"
+      ]
     }
   ]
 }

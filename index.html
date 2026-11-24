@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RallyOnly — Tennis, Padel &amp; Pickleball Video Editor</title>
+<title>RallyOnly — Cut Dead Time From Tennis, Padel &amp; Pickleball Videos</title>
 <meta name="description" content="Automatically trim tennis, padel and pickleball match videos. Build highlight reels on your device without an account or video upload.">
 <link rel="canonical" href="https://rallyonly.app/">
 <link rel="alternate" hreflang="en" href="https://rallyonly.app/">
@@ -30,6 +30,7 @@
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
+  "@id": "https://rallyonly.app/#app",
   "name": "RallyOnly: Tennis Highlights",
   "softwareVersion": "1.40",
   "operatingSystem": "iOS 17 or later, iPadOS 17 or later, macOS (Apple silicon)",
@@ -46,7 +47,11 @@
   "author": {
     "@type": "Person",
     "name": "Yuda Li"
-  }
+  },
+  "publisher": {"@id": "https://rallyonly.app/#org"},
+  "image": "https://rallyonly.app/img/icon-180.png",
+  "screenshot": ["https://rallyonly.app/img/1-results.jpg", "https://rallyonly.app/img/2-picker.jpg", "https://rallyonly.app/img/3-trim.jpg"],
+  "sameAs": ["https://apps.apple.com/app/id6813940884"]
 }
 </script>
 <script type="application/ld+json">
@@ -120,6 +125,38 @@
  "thumbnailUrl":"https://rallyonly.app/media/rallyonly-20s.jpg",
  "contentUrl":"https://rallyonly.app/media/rallyonly-20s.mp4",
  "uploadDate":"2026-11-09","duration":"PT20S","inLanguage":"en"}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://rallyonly.app/#org",
+      "name": "RallyOnly",
+      "url": "https://rallyonly.app/",
+      "logo": "https://rallyonly.app/img/icon-180.png",
+      "email": "rallyonly.feedback@gmail.com",
+      "sameAs": [
+        "https://apps.apple.com/app/id6813940884"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://rallyonly.app/#website",
+      "name": "RallyOnly",
+      "url": "https://rallyonly.app/",
+      "publisher": {
+        "@id": "https://rallyonly.app/#org"
+      },
+      "inLanguage": [
+        "en",
+        "es",
+        "zh-Hans"
+      ]
+    }
+  ]
+}
 </script>
 </head>
 <body>

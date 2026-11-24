@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-Hans"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RallyOnly 回合剪 — 网球、板式网球与匹克球视频自动剪辑</title>
+<title>RallyOnly 回合剪 — 自动剪掉网球、板式网球与匹克球录像里的等待时间</title>
 <meta name="description" content="在本地自动剪掉网球、板式网球（Padel）和匹克球录像中的捡球与等待时间，支持记分牌叠加、逐帧回看和精彩集锦导出。无需注册或上传视频。">
 <link rel="canonical" href="https://rallyonly.app/zh/">
 <link rel="alternate" hreflang="en" href="https://rallyonly.app/">
@@ -30,6 +30,7 @@
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
+  "@id": "https://rallyonly.app/#app",
   "name": "RallyOnly: Tennis Highlights",
   "inLanguage": "zh-Hans",
   "softwareVersion": "1.40",
@@ -47,7 +48,11 @@
   "author": {
     "@type": "Person",
     "name": "Yuda Li"
-  }
+  },
+  "publisher": {"@id": "https://rallyonly.app/#org"},
+  "image": "https://rallyonly.app/img/icon-180.png",
+  "screenshot": ["https://rallyonly.app/img/1-results.jpg", "https://rallyonly.app/img/2-picker.jpg", "https://rallyonly.app/img/3-trim.jpg"],
+  "sameAs": ["https://apps.apple.com/app/id6813940884"]
 }
 </script>
 <script type="application/ld+json">
@@ -122,6 +127,38 @@
  "thumbnailUrl":"https://rallyonly.app/media/rallyonly-20s.jpg",
  "contentUrl":"https://rallyonly.app/media/rallyonly-20s.mp4",
  "uploadDate":"2026-11-09","duration":"PT20S","inLanguage":"zh-Hans"}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://rallyonly.app/#org",
+      "name": "RallyOnly",
+      "url": "https://rallyonly.app/",
+      "logo": "https://rallyonly.app/img/icon-180.png",
+      "email": "rallyonly.feedback@gmail.com",
+      "sameAs": [
+        "https://apps.apple.com/app/id6813940884"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://rallyonly.app/#website",
+      "name": "RallyOnly",
+      "url": "https://rallyonly.app/",
+      "publisher": {
+        "@id": "https://rallyonly.app/#org"
+      },
+      "inLanguage": [
+        "en",
+        "es",
+        "zh-Hans"
+      ]
+    }
+  ]
+}
 </script>
 </head>
 <body>
